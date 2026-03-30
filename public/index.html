@@ -1,190 +1,334 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="vi" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Góc Chuyên Gia Nobinobi: Sữa Y Khoa Beanstalk Sukoyaka M1</title>
-    <meta name="description" content="Đánh giá chuyên sâu sữa y khoa Beanstalk Sukoyaka M1 nội địa Nhật. Chứa Osteopontin (OPN) chống táo bón, giống sữa mẹ nhất.">
+    <title>Bỉm SmartAngel Nội Địa Nhật - Chân Ái Chống Hăm | Nobinobi</title>
     
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Bỉm SmartAngel nội địa Nhật Bản siêu mỏng, thấm hút vượt trội. Giá chỉ từ 249k. Giao hỏa tốc 2h tại TP.HCM. Đền 200% nếu phát hiện hàng giả.">
+    <meta property="og:title" content="Bỉm SmartAngel Nội Địa Nhật - Giá Tốt Nhất">
+    <meta property="og:image" content="07ac125f03544680e9e79f7293c224f0.webp">
+
+    <!-- Tailwind & Fonts -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Thư viện hiệu ứng Animate On Scroll -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Bộ Icon Lucide -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
     <style>
         body { font-family: 'Nunito', sans-serif; }
-        html { scroll-behavior: smooth; }
-        .btn-glow:hover { box-shadow: 0 0 15px rgba(20, 184, 166, 0.7); transform: scale(1.03); transition: all 0.3s ease; }
+        
+        /* Hiệu ứng nền Pattern nhẹ nhàng cho Hero */
+        .hero-pattern {
+            background-color: #14b8a6;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2v-4h4v-2h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2v-4h4v-2H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        /* Hiệu ứng nút bấm cao cấp */
+        .btn-premium {
+            box-shadow: 0 10px 25px -5px rgba(249, 115, 22, 0.4);
+            transition: all 0.3s ease;
+        }
+        .btn-premium:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 30px -10px rgba(249, 115, 22, 0.6);
+        }
+
+        /* FAQ Accordion */
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        .faq-item.active .faq-answer {
+            max-height: 300px;
+        }
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800 tracking-tight">
+<body class="bg-slate-50 text-slate-800 antialiased overflow-x-hidden">
 
-    <header class="bg-[#56c142] text-white p-4 shadow-md sticky top-0 z-50 border-b-2 border-orange-400">
-        <div class="max-w-7xl mx-auto flex items-center justify-between">
-            <a href="#" class="text-3xl font-black tracking-tight hover:text-orange-200 transition">Nobinobi</a>
-            <nav class="space-x-4">
-                <a href="#danh-sach-san-pham" class="font-semibold hover:text-teal-200 transition">Sản phẩm</a>
-                <a href="#feedback" class="font-semibold hover:text-teal-200 transition">Đánh giá</a>
-            </nav>
-            <a href="#" class="text-3xl relative transform hover:scale-110 transition">🛒<span class="absolute -top-1 -right-2 bg-orange-500 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">9</span></a>
-        </div>
+    <!-- 1. HEADER (STICKY NAVIGATION) -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md shadow-sm border-b border-slate-100">
+        <nav class="max-w-6xl mx-auto px-4 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-2">
+                <div class="w-10 h-10 bg-teal-500 rounded-xl flex items-center justify-center text-white font-black text-xl">N</div>
+                <span class="text-teal-600 font-black text-2xl tracking-tighter">NOBINOBI</span>
+            </div>
+            <div class="hidden md:flex items-center space-x-8 font-bold text-slate-600">
+                <a href="#loi-ich" class="hover:text-teal-600 transition">Ưu điểm</a>
+                <a href="#san-pham" class="hover:text-teal-600 transition">Sản phẩm</a>
+                <a href="#faq" class="hover:text-teal-600 transition">Hỏi đáp</a>
+            </div>
+            <a href="#san-pham" class="bg-orange-500 text-white px-6 py-2.5 rounded-full font-bold hover:bg-orange-600 transition-all shadow-md shadow-orange-200">Đặt hàng ngay</a>
+        </nav>
     </header>
 
-    <section class="relative bg-gradient-to-br from-[#9ec1ab] to-[#3af549] text-white overflow-hidden border-b-8 border-teal-300">
-        <div class="max-w-7xl mx-auto px-4 py-16 md:py-24 flex flex-col md:flex-row items-center relative z-10">
-            <div class="md:w-1/2 mb-10 md:mb-0 text-center md:text-left relative z-20">
-                <span class="inline-block py-1 px-3 rounded-full bg-white text-teal-600 font-bold text-sm mb-4 uppercase tracking-wider shadow-sm">Thế Giới Hàng Nhật</span>
-                <h1 class="text-4xl md:text-6xl font-black leading-tight mb-6 tracking-tight">Sukoyaka Cho Bé <br/><span class="text-orange-200">Beanstalk M1</span></h1>
-                <p class="text-lg md:text-xl mb-10 font-medium opacity-95 leading-relaxed">Mô phỏng 99% thành phần sữa mẹ, chứa Osteopontin (OPN) chống táo bón. Giải pháp y khoa cho hệ tiêu hóa sơ sinh non nớt.</p>
-                <a href="#danh-sach-san-pham" class="btn-glow inline-block bg-orange-500 text-white font-black text-xl py-5 px-12 rounded-full shadow-lg transform transition hover:scale-105 uppercase tracking-wide">SĂN DEAL NGAY 👇</a>
+    <!-- 2. HERO SECTION -->
+    <section class="relative pt-32 pb-20 md:pt-48 md:pb-32 hero-pattern text-white overflow-hidden">
+        <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center relative z-10">
+            <div class="md:w-1/2 text-center md:text-left" data-aos="fade-right">
+                <div class="inline-block px-4 py-1.5 bg-white/20 backdrop-blur-md border border-white/30 rounded-full text-sm font-bold mb-6 tracking-wide">
+                    🇯🇵 CHUẨN NỘI ĐỊA NHẬT BẢN
+                </div>
+                <h1 class="text-4xl md:text-6xl font-black leading-[1.1] mb-6">
+                    Bỉm <span class="text-yellow-300 italic">SmartAngel</span> <br/>
+                    <span class="text-3xl md:text-5xl font-extrabold opacity-95">Mông Bé Khô Thoáng <br/> Mẹ Chẳng Lo Toan</span>
+                </h1>
+                <p class="text-lg md:text-xl mb-10 opacity-90 font-medium max-w-xl">
+                    Dòng bỉm siêu mỏng dành riêng cho khí hậu nhiệt đới. Thấm hút siêu tốc, chống hăm tuyệt đối từ chuỗi siêu thị Nishimatsuya Nhật Bản.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                    <a href="#san-pham" class="btn-premium bg-orange-500 text-white px-10 py-5 rounded-2xl font-black text-xl flex items-center justify-center gap-2">
+                        SĂN DEAL 249K <i data-lucide="shopping-cart"></i>
+                    </a>
+                </div>
             </div>
-            <div class="md:w-1/2 relative flex justify-center z-10">
-                <img src="27ae0e3db0340cbd915e9c5aeb8c8f4f.webp" alt="Sữa y khoa Beanstalk" class="rounded-3xl shadow-2xl w-4/5 object-cover h-[450px] border-4 border-white transform rotate-2 hover:rotate-0 transition duration-500 bg-white p-4 cursor-pointer">
+            <div class="md:w-1/2 mt-16 md:mt-0 relative" data-aos="zoom-in" data-aos-delay="200">
+                <div class="absolute -inset-10 bg-white/10 rounded-full blur-3xl"></div>
+                <img src="1cf0389ddee727c53dcd9d9ebae6316a.webp" alt="Bé dùng bỉm SmartAngel" class="relative z-10 rounded-[3rem] shadow-2xl border-8 border-white/20 rotate-3 hover:rotate-0 transition-transform duration-500">
             </div>
+        </div>
+        
+        <!-- Wave Divider -->
+        <div class="absolute bottom-0 w-full leading-none overflow-hidden">
+            <svg viewBox="0 0 1200 120" preserveAspectRatio="none" class="relative block w-full h-[60px] fill-slate-50">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118,130.98,130.12,204.34,121.61,244.6,116.8,284.53,101.43,321.39,56.44Z"></path>
+            </svg>
         </div>
     </section>
 
-    <section id="danh-sach-san-pham" class="py-20 max-w-7xl mx-auto px-4">
-        <div class="text-center mb-16 max-w-2xl mx-auto">
-            <h2 class="text-4xl md:text-5xl font-black text-gray-900 mb-4 tracking-tight">Siêu Phẩm Số 1 Cho Bé</h2>
-            <p class="text-xl text-gray-500 font-medium">Lựa chọn tốt nhất cho sự phát triển toàn diện của bé yêu.</p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-            
-            <div class="bg-white rounded-[2rem] p-6 shadow-xl border-2 border-transparent hover:border-teal-400 flex flex-col justify-between hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 relative overflow-hidden group cursor-pointer">
-                <div class="absolute top-4 left-4 bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full z-10 animate-pulse">-22%</div>
-                <div class="overflow-hidden rounded-2xl mb-6">
-                    <img src="7bf617ad-ac24-4d67-8ed3-547466ce2112.jfif" alt="Sukoyaka M1 800g" class="w-full h-72 object-cover transform transition-transform duration-500 group-hover:scale-110">
+    <!-- 3. TRUST BADGES (THANH TIN CẬY) -->
+    <div class="bg-slate-50 py-12">
+        <div class="max-w-6xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div class="flex items-center gap-4 group" data-aos="fade-up" data-aos-delay="0">
+                <div class="w-14 h-14 bg-white rounded-2xl shadow-sm flex items-center justify-center text-teal-500 group-hover:bg-teal-500 group-hover:text-white transition-colors">
+                    <i data-lucide="shield-check"></i>
                 </div>
-                <div class="flex-grow">
-                    <h3 class="text-2xl font-bold text-gray-900 mb-2 group-hover:text-teal-600 transition-colors">Sukoyaka M1 (800g)</h3>
-                    <p class="text-gray-500 mb-4 font-semibold text-sm">Số 0 y khoa (bé 0-1 tuổi). Công thức chứa Osteopontin.</p>
-                    <div class="flex items-end mb-6">
-                        <p class="text-red-500 font-black text-3xl mr-3">550.000đ</p>
-                        <p class="text-gray-400 line-through text-lg mb-1">620.000đ</p>
+                <div>
+                    <h4 class="font-bold text-slate-800">Chính Hãng</h4>
+                    <p class="text-sm text-slate-500">100% Nội địa Nhật</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-4 group" data-aos="fade-up" data-aos-delay="100">
+                <div class="w-14 h-14 bg-white rounded-2xl shadow-sm flex items-center justify-center text-teal-500 group-hover:bg-teal-500 group-hover:text-white transition-colors">
+                    <i data-lucide="truck"></i>
+                </div>
+                <div>
+                    <h4 class="font-bold text-slate-800">Hỏa Tốc</h4>
+                    <p class="text-sm text-slate-500">Giao 2h nội thành</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-4 group" data-aos="fade-up" data-aos-delay="200">
+                <div class="w-14 h-14 bg-white rounded-2xl shadow-sm flex items-center justify-center text-teal-500 group-hover:bg-teal-500 group-hover:text-white transition-colors">
+                    <i data-lucide="heart"></i>
+                </div>
+                <div>
+                    <h4 class="font-bold text-slate-800">An Toàn</h4>
+                    <p class="text-sm text-slate-500">Chống hăm 100%</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-4 group" data-aos="fade-up" data-aos-delay="300">
+                <div class="w-14 h-14 bg-white rounded-2xl shadow-sm flex items-center justify-center text-teal-500 group-hover:bg-teal-500 group-hover:text-white transition-colors">
+                    <i data-lucide="star"></i>
+                </div>
+                <div>
+                    <h4 class="font-bold text-slate-800">Uy Tín</h4>
+                    <p class="text-sm text-slate-500">Đền 200% nếu giả</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 4. PRODUCT SECTION -->
+    <section id="san-pham" class="py-24 bg-white">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="bg-slate-50 rounded-[3rem] overflow-hidden flex flex-col md:flex-row items-stretch shadow-xl border border-slate-100">
+                <div class="md:w-1/2 p-8 md:p-12 flex items-center justify-center bg-gray-100/50">
+                    <img src="07ac125f03544680e9e79f7293c224f0.webp" alt="Bỉm SmartAngel" class="w-full max-w-md drop-shadow-2xl hover:scale-105 transition-transform duration-500">
+                </div>
+                <div class="md:w-1/2 p-8 md:p-16 flex flex-col justify-center">
+                    <div class="flex items-center gap-2 mb-4">
+                        <div class="flex text-yellow-400"><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i></div>
+                        <span class="text-sm font-bold text-slate-400">(1,248 lượt bán tại TP.HCM)</span>
                     </div>
-                </div>
-                    <a href="product.html" class="w-full block text-center bg-gradient-to-r from-orange-500 to-red-500 text-white font-black text-xl py-4 rounded-xl shadow-md transform transition duration-300 hover:scale-105 hover:shadow-lg uppercase mt-auto">CHỌN MUA NGAY</a>            </div>
+                    <h2 class="text-4xl font-black text-slate-900 mb-2 uppercase tracking-tight">Bỉm Quần SmartAngel</h2>
+                    <p class="text-teal-600 font-bold mb-8 italic">Giải pháp tiết kiệm thông minh cho mẹ bỉm Nhật</p>
+                    
+                    <div class="flex items-baseline gap-4 mb-8">
+                        <span class="text-5xl font-black text-red-500">249.000đ</span>
+                        <span class="text-2xl text-slate-300 line-through font-bold">320.000đ</span>
+                        <span class="bg-red-100 text-red-600 px-3 py-1 rounded-lg font-black text-sm">-22%</span>
+                    </div>
 
-            <div class="bg-white rounded-[2rem] p-6 shadow-xl border-2 border-teal-200 hover:border-teal-400 flex flex-col justify-between hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 relative overflow-hidden group cursor-pointer">
-                <div class="absolute top-4 left-4 bg-orange-500 text-white text-xs font-bold px-3 py-1 rounded-full z-10 shadow-sm">BEST FOR DIGESTION</div>
-                <div class="overflow-hidden rounded-2xl mb-6">
-                    <img src="27ae0e3db0340cbd915e9c5aeb8c8f4f.webp" alt="Sukoyaka M1 Combo 2" class="w-full h-72 object-cover transform transition-transform duration-500 group-hover:scale-110">
+                    <div class="space-y-4 mb-10 text-lg font-semibold text-slate-600">
+                        <div class="flex items-center gap-3">
+                            <i data-lucide="check-circle-2" class="text-teal-500"></i> <span>Mỏng chỉ 2mm, mặc nhẹ như không</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i data-lucide="check-circle-2" class="text-teal-500"></i> <span>Màng đáy 3D thoáng khí, chống hăm</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i data-lucide="check-circle-2" class="text-teal-500"></i> <span>Đủ size S/M/L/XL/XXL cho bé</span>
+                        </div>
+                    </div>
+
+                    <button class="btn-premium w-full bg-gradient-to-r from-orange-500 to-red-600 text-white font-black text-2xl py-6 rounded-2xl uppercase tracking-widest">
+                        ĐẶT MUA NGAY
+                    </button>
+                    <p class="text-center mt-4 text-slate-400 text-sm font-bold italic">Sản phẩm đang cực hot - Chỉ còn 15 suất ưu đãi hôm nay!</p>
                 </div>
-                <div class="flex-grow">
-                    <h3 class="text-2xl font-bold text-gray-900 mb-2 group-hover:text-teal-600 transition-colors">Sukoyaka M1 (Combo 2)</h3>
-                    <p class="text-gray-500 mb-4 font-semibold text-sm">Tiết kiệm hơn khi mua combo (2 lon 800g)</p>
-                    <div class="flex items-end mb-6"><p class="text-red-500 font-black text-3xl mr-3">1.090.000đ</p></div>
-                </div>
-                <button class="w-full bg-gradient-to-r from-teal-500 to-teal-600 text-white font-black text-xl py-4 rounded-xl shadow-md transform transition duration-300 hover:scale-105 hover:shadow-lg uppercase mt-auto">MUA COMBO</button>
             </div>
-
-            <div class="bg-white rounded-[2rem] p-6 shadow-xl border-2 border-transparent hover:border-teal-400 flex flex-col justify-between hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 relative overflow-hidden group cursor-pointer">
-                <div class="overflow-hidden rounded-2xl mb-6">
-                    <img src="75ee42ed78613764e0b4ad76addd9812.webp" alt="Sukoyaka M1 Thanh" class="w-full h-72 object-cover transform transition-transform duration-500 group-hover:scale-110">
-                </div>
-                <div class="flex-grow">
-                    <h3 class="text-2xl font-bold text-gray-900 mb-2 group-hover:text-teal-600 transition-colors">Sukoyaka M1 (Thanh)</h3>
-                    <p class="text-gray-500 mb-4 font-semibold text-sm">Dạng thanh tiện lợi cho mẹ mang đi sinh hoặc du lịch</p>
-                    <div class="flex items-end mb-6"><p class="text-red-500 font-black text-3xl mr-3">490.000đ</p></div>
-                </div>
-                <button class="w-full bg-gradient-to-r from-orange-500 to-red-500 text-white font-black text-xl py-4 rounded-xl shadow-md transform transition duration-300 hover:scale-105 hover:shadow-lg uppercase mt-auto">MUA DẠNG THANH</button>
-            </div>
-
-            <div class="bg-white rounded-[2rem] p-6 shadow-xl border-2 border-transparent hover:border-teal-400 flex flex-col justify-between hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 relative overflow-hidden group cursor-pointer">
-                <div class="absolute top-4 left-4 bg-blue-500 text-white text-xs font-bold px-3 py-1 rounded-full z-10 shadow-sm">MẪU MỚI</div>
-                <div class="overflow-hidden rounded-2xl mb-6">
-                    <img src="7bf617ad-ac24-4d67-8ed3-547466ce2112.jfif" alt="Beanstalk Sukoyaka Tiêu Chảy" class="w-full h-72 object-cover transform transition-transform duration-500 group-hover:scale-110">
-                </div>
-                <div class="flex-grow">
-                    <h3 class="text-2xl font-bold text-gray-900 mb-2 group-hover:text-teal-600 transition-colors">Beanstalk Sukoyaka</h3>
-                    <p class="text-gray-500 mb-4 font-semibold text-sm">Công thức nội địa chuẩn Nhật Bản, bảo vệ bé yêu</p>
-                    <div class="flex items-end mb-6"><p class="text-red-500 font-black text-3xl mr-3">550.000đ</p></div>
-                </div>
-                <button class="w-full bg-gradient-to-r from-orange-500 to-red-500 text-white font-black text-xl py-4 rounded-xl shadow-md transform transition duration-300 hover:scale-105 hover:shadow-lg uppercase mt-auto">XEM CHI TIẾT</button>
-            </div>
-
         </div>
     </section>
 
-    <section class="bg-white py-20 border-t border-b border-gray-100">
-        <div class="max-w-5xl mx-auto px-4">
+    <!-- 5. BENEFITS GRID -->
+    <section id="loi-ich" class="py-24 bg-slate-50">
+        <div class="max-w-6xl mx-auto px-4">
             <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-5xl font-black text-gray-900 mb-6 tracking-tight">Giải Mã Sức Mạnh Y Khoa Của Beanstalk</h2>
-                <p class="text-lg text-gray-600">Lịch sử nghiên cứu 73 năm, thu thập hơn 10.000 mẫu sữa mẹ từ khắp Nhật Bản và áp dụng kết quả vào công thức hoàn hảo.</p>
+                <h2 class="text-3xl md:text-5xl font-black text-slate-900 mb-6 uppercase tracking-tight">Tại sao nên chọn SmartAngel?</h2>
+                <div class="w-24 h-2 bg-teal-500 mx-auto rounded-full"></div>
             </div>
 
-            <div class="mb-16 transform transition hover:scale-[1.01]">
-                <h3 class="text-2xl font-bold text-gray-900 border-l-8 border-orange-500 pl-4 mb-6">1. Tiên phong chứa Osteopontin (OPN)</h3>
-                <img src="7bf617ad-ac24-4d67-8ed3-547466ce2112.jfif" alt="Thành phần Osteopontin trong sữa Beanstalk" class="w-full h-auto rounded-3xl shadow-lg border border-gray-100 hover:shadow-xl transition">
-            </div>
-
-            <div class="mb-16 transform transition hover:scale-[1.01]">
-                <h3 class="text-2xl font-bold text-gray-900 border-l-8 border-teal-500 pl-4 mb-6">2. Hệ Dinh Dưỡng Giống Sữa Mẹ Toàn Diện</h3>
-                <img src="8a315e2a-8043-4345-8eaf-8bd1ab671d62.jfif" alt="Thành phần RNA, DHA, Protein, Vitamin trong Beanstalk" class="w-full h-auto rounded-3xl shadow-lg border border-gray-100 hover:shadow-xl transition">
-            </div>
-
-            <div class="mb-10 transform transition hover:scale-[1.01]">
-                <h3 class="text-2xl font-bold text-gray-900 border-l-8 border-blue-500 pl-4 mb-6">3. Độc Quyền: Bề Mặt Lon Kháng Khuẩn</h3>
-                <img src="74054139-ac1b-4169-b3e5-0481d78894fe.jfif" alt="So sánh lon kháng khuẩn Beanstalk" class="w-full h-auto rounded-3xl shadow-lg border border-gray-100 hover:shadow-xl transition">
-            </div>
-        </div>
-    </section>
-
-    <section class="bg-orange-50 py-20 border-b border-orange-100">
-        <div class="max-w-5xl mx-auto px-4">
-            <h2 class="text-3xl md:text-4xl font-extrabold text-center text-gray-900 mb-12">Hỏi Nhanh Đáp Gọn: Sữa Beanstalk Pha Bao Nhiêu Độ?</h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-                <div>
-                    <div class="bg-white rounded-3xl p-8 shadow-md border border-gray-100 hover:shadow-lg transition">
-                        <span class="text-4xl mb-4 block">🗣️</span>
-                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Câu trả lời chuẩn y khoa:</h3>
-                        <p class="text-lg text-gray-700 font-bold border-l-4 border-teal-500 pl-4 bg-teal-50 py-4 rounded-r-lg mb-4 leading-relaxed">
-                            Mẹ cần cho nước nóng <span class="text-orange-600">&gt; 70°C</span> vào bình sữa (cao hơn 1/2 lượng sữa cần pha).
-                        </p>
-                        <p class="text-gray-600 leading-relaxed">Nhiệt độ này đủ để tiêu diệt vi khuẩn có thể lây nhiễm chéo mà không làm phá hủy cấu trúc của các kháng thể quý giá như Osteopontin và RNA.</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <div class="bg-white p-10 rounded-[2.5rem] shadow-sm hover:shadow-xl transition-all duration-300 group border border-slate-100" data-aos="fade-up" data-aos-delay="0">
+                    <div class="w-16 h-16 bg-teal-50 rounded-2xl mb-8 flex items-center justify-center text-teal-600 group-hover:scale-110 transition-transform">
+                        <i data-lucide="wind" class="w-8 h-8"></i>
                     </div>
+                    <h3 class="text-2xl font-bold mb-4 text-slate-800">Độ mỏng 2mm</h3>
+                    <p class="text-slate-500 leading-relaxed font-medium text-lg">Thiết kế mỏng kỷ lục giúp bé vận động thoải mái, không gây xệ đũng hay vướng víu dù mặc cả ngày.</p>
                 </div>
-                <div>
-                    <img src="ab43c012-5114-4a5c-a94c-09387940538f.jfif" alt="Hướng dẫn pha sữa Beanstalk chuẩn 70 độ" class="w-full h-auto rounded-3xl shadow-xl border-4 border-white transform hover:scale-105 transition duration-500">
+                
+                <div class="bg-white p-10 rounded-[2.5rem] shadow-sm hover:shadow-xl transition-all duration-300 group border border-slate-100" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-16 h-16 bg-orange-50 rounded-2xl mb-8 flex items-center justify-center text-orange-600 group-hover:scale-110 transition-transform">
+                        <i data-lucide="droplets" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-slate-800">Siêu thấm hút</h3>
+                    <p class="text-slate-500 leading-relaxed font-medium text-lg">Công nghệ hạt SAP cao cấp khóa chặt chất lỏng ngay lập tức, giữ bề mặt luôn khô thoáng tuyệt đối.</p>
+                </div>
+
+                <div class="bg-white p-10 rounded-[2.5rem] shadow-sm hover:shadow-xl transition-all duration-300 group border border-slate-100" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-16 h-16 bg-blue-50 rounded-2xl mb-8 flex items-center justify-center text-blue-600 group-hover:scale-110 transition-transform">
+                        <i data-lucide="pocket" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-slate-800">Giá cực "hạt dẻ"</h3>
+                    <p class="text-slate-500 leading-relaxed font-medium text-lg">Mẹ có thể thay bỉm cho bé thường xuyên mà không lo "xót ví", đảm bảo vệ sinh nhất cho con.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="feedback" class="bg-teal-50 py-20">
-        <div class="max-w-6xl mx-auto px-4 tracking-tight">
-            <h2 class="text-3xl md:text-5xl font-black text-center text-gray-900 mb-12 tracking-tight leading-tight">Hàng Ngàn Mẹ Bỉm Đã Tìm <br/>Được Chân Ái Beanstalk</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="bg-white p-8 rounded-[2rem] shadow-sm flex items-start hover:shadow-lg transition transform hover:-translate-y-1">
-                    <div class="w-14 h-14 rounded-full bg-orange-100 text-orange-500 flex items-center justify-center font-black text-2xl mr-6 flex-shrink-0">V</div>
-                    <div>
-                        <p class="text-orange-400 text-xl tracking-widest mb-2">★★★★★</p>
-                        <p class="text-gray-700 italic text-base leading-relaxed mb-3">"Bé nhà mình bón kinh khủng, dùng sữa cũ không đỡ. Sang Beanstalk 1 tuần là out put tơi xốp, phân vàng đẹp. Nobinobi tư vấn có tâm quá, ship hỏa tốc TP.HCM trong đêm cho bé luôn."</p>
-                        <p class="font-bold text-gray-900">- Mẹ Ngọc Vy, Quận 3</p>
-                    </div>
-                </div>
-                <div class="bg-white p-8 rounded-[2rem] shadow-sm flex items-start border-l-4 border-teal-300 hover:shadow-lg transition transform hover:-translate-y-1">
-                    <div class="w-14 h-14 rounded-full bg-teal-100 text-teal-600 flex items-center justify-center font-black text-2xl mr-6 flex-shrink-0">M</div>
-                    <div>
-                        <p class="text-orange-400 text-xl tracking-widest mb-2">★★★★★</p>
-                        <p class="text-gray-700 italic text-base leading-relaxed mb-3">"Lúc đầu mua thử 1 lon vì thấy chứa OPN y khoa. Mùi sữa nhạt và mát như sữa mẹ thật. Giờ mình chốt luôn nguyên thùng ở Nobinobi cho bé uống dần, date luôn mới nhất."</p>
-                        <p class="font-bold text-gray-900">- Mẹ Mai Anh, Bình Thạnh</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer class="bg-gray-900 text-white py-16 text-center tracking-tight border-t-8 border-orange-400">
+    <!-- 6. FAQ ACCORDION -->
+    <section id="faq" class="py-24 bg-white">
         <div class="max-w-3xl mx-auto px-4">
-            <h2 class="text-4xl md:text-5xl font-black mb-6 leading-tight">Chốt Đơn Kẻo Lỡ Mẹ Ơi! <br/>Ưu Đãi Chỉ Có Hạn</h2>
-            <p class="text-gray-400 mb-10 text-xl font-medium">Số lượng quà tặng Beanstalk Sukoyaka M1 y khoa Số 0 cực kỳ có hạn.</p>
-            <button class="bg-gradient-to-r from-orange-500 to-red-500 text-white font-black text-2xl py-6 px-16 rounded-full shadow-[0_0_30px_rgba(239,68,68,0.5)] transform transition hover:scale-110 uppercase btn-pulse tracking-tight animate-bounce">
-                ĐẶT HÀNG TRÊN WEB NGAY - TỪ 550.000Đ
-            </button>
-            <p class="mt-16 text-gray-500 font-medium text-sm">© 2026 Nobinobi.vn - Đại lý Sữa Beanstalk Nội Địa Nhật Chính Hãng TP.HCM.</p>
+            <h2 class="text-4xl font-black text-center text-slate-900 mb-16 uppercase italic">Hỏi Đáp Cùng Nobinobi</h2>
+            <div class="space-y-4">
+                <div class="faq-item group bg-slate-50 rounded-2xl border border-slate-100 overflow-hidden cursor-pointer">
+                    <div class="p-6 flex justify-between items-center bg-white transition hover:bg-slate-50" onclick="toggleFaq(this)">
+                        <span class="text-lg font-bold text-slate-800">Bỉm SmartAngel của nước nào sản xuất?</span>
+                        <i data-lucide="chevron-down" class="faq-icon text-slate-400 transition-transform duration-300"></i>
+                    </div>
+                    <div class="faq-answer px-6">
+                        <div class="pb-6 text-slate-500 font-medium leading-relaxed">
+                            Bỉm SmartAngel là sản phẩm **100% nội địa Nhật Bản**. Đây là thương hiệu độc quyền của Nishimatsuya - chuỗi siêu thị mẹ và bé danh tiếng hàng đầu tại Nhật với hơn hàng ngàn cửa hàng trên khắp đất nước mặt trời mọc.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item group bg-slate-50 rounded-2xl border border-slate-100 overflow-hidden cursor-pointer">
+                    <div class="p-6 flex justify-between items-center bg-white transition hover:bg-slate-50" onclick="toggleFaq(this)">
+                        <span class="text-lg font-bold text-slate-800">Bỉm này có phù hợp cho bé dùng ban đêm không?</span>
+                        <i data-lucide="chevron-down" class="faq-icon text-slate-400 transition-transform duration-300"></i>
+                    </div>
+                    <div class="faq-answer px-6">
+                        <div class="pb-6 text-slate-500 font-medium leading-relaxed">
+                            Hoàn toàn được! Mặc dù có thiết kế mỏng nhưng sức chứa của SmartAngel rất ấn tượng nhờ công nghệ hạt SAP ngậm nước. Với các bé không tè quá nhiều, một miếng bỉm có thể dùng xuyên đêm 8-10 tiếng.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item group bg-slate-50 rounded-2xl border border-slate-100 overflow-hidden cursor-pointer">
+                    <div class="p-6 flex justify-between items-center bg-white transition hover:bg-slate-50" onclick="toggleFaq(this)">
+                        <span class="text-lg font-bold text-slate-800">Làm sao để biết khi nào cần thay bỉm cho bé?</span>
+                        <i data-lucide="chevron-down" class="faq-icon text-slate-400 transition-transform duration-300"></i>
+                    </div>
+                    <div class="faq-answer px-6">
+                        <div class="pb-6 text-slate-500 font-medium leading-relaxed">
+                            Bỉm SmartAngel tích hợp **vạch báo đầy thông minh**. Khi vạch màu vàng chuyển sang màu xanh đậm, đó là lúc mẹ cần thay bỉm mới để bảo vệ làn da bé luôn khô thoáng nhất.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. FOOTER -->
+    <footer class="bg-slate-900 text-white pt-24 pb-12">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-start gap-12 mb-20">
+                <div class="max-w-md">
+                    <div class="flex items-center space-x-2 mb-8">
+                        <div class="w-10 h-10 bg-teal-500 rounded-xl flex items-center justify-center text-white font-black text-xl">N</div>
+                        <span class="text-white font-black text-3xl tracking-tighter italic uppercase">NOBINOBI</span>
+                    </div>
+                    <p class="text-slate-400 text-lg font-medium leading-relaxed">
+                        Chuyên phân phối sỉ lẻ bỉm SmartAngel và hàng tiêu dùng mẹ & bé nội địa Nhật Bản. Cam kết chất lượng, uy tín hàng đầu TP.HCM.
+                    </p>
+                </div>
+                <div class="space-y-6">
+                    <h4 class="text-xl font-bold uppercase tracking-widest text-teal-400">Liên hệ</h4>
+                    <ul class="space-y-4 font-bold text-slate-300">
+                        <li class="flex items-center gap-3"><i data-lucide="map-pin" class="w-5 text-teal-500"></i> 123 Đường Số 7, Quận 1, TP.HCM</li>
+                        <li class="flex items-center gap-3"><i data-lucide="phone" class="w-5 text-teal-500"></i> Hotline: 09xx.xxx.xxx</li>
+                        <li class="flex items-center gap-3"><i data-lucide="mail" class="w-5 text-teal-500"></i> support@nobinobi.vn</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-slate-800 pt-10 text-center">
+                <p class="text-slate-500 font-bold">© 2026 Nobinobi.vn. Toàn bộ hình ảnh thuộc bản quyền thương hiệu.</p>
+            </div>
         </div>
     </footer>
 
+    <!-- 8. FLOATING ACTIONS -->
+    <div class="fixed bottom-6 right-6 z-50 flex flex-col gap-3">
+        <a href="https://zalo.me/your_number" class="w-14 h-14 bg-blue-500 text-white rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-transform active:scale-95">
+            <span class="font-black">Zalo</span>
+        </a>
+        <a href="tel:09xxxxxx" class="w-14 h-14 bg-teal-500 text-white rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-transform active:scale-95">
+            <i data-lucide="phone-call" class="w-6 h-6"></i>
+        </a>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Khởi tạo hiệu ứng cuộn
+        AOS.init({ duration: 1000, once: true });
+        
+        // Khởi tạo Icon
+        lucide.createIcons();
+
+        // Xử lý FAQ Accordion
+        function toggleFaq(element) {
+            const item = element.parentElement;
+            const isActive = item.classList.contains('active');
+            
+            // Đóng tất cả các FAQ khác
+            document.querySelectorAll('.faq-item').forEach(el => el.classList.remove('active'));
+            
+            // Mở cái hiện tại nếu nó chưa mở
+            if (!isActive) {
+                item.classList.add('active');
+            }
+        }
+    </script>
 </body>
 </html>
