@@ -1,0 +1,11 @@
+{
+  "hosting": {
+    "site": "mkt-landingpage-ai",
+    "public": "public",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}
