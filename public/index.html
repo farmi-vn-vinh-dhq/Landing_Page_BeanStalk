@@ -3,200 +3,232 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Góc Chuyên Gia Nobinobi | Sữa Y Khoa Beanstalk Sukoyaka M1 Nội Địa Nhật</title>
-    <meta name="description" content="Đánh giá chuyên sâu sữa y khoa Beanstalk Sukoyaka M1 nội địa Nhật. Chứa Osteopontin (OPN) chống táo bón, giúp bé phát triển toàn diện.">
-    
-    <!-- Tailwind & Google Fonts -->
+    <title>Nobinobi | Sữa Y Khoa Beanstalk M1 - Đẳng Cấp Nội Địa Nhật</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- AOS Library for Scroll Animations -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
     <script>
         tailwind.config = {
             theme: {
                 extend: {
-                    colors: {
-                        primary: '#56c142',
-                        secondary: '#FF8A00',
-                        accent: '#E8F5E9',
-                        dark: '#1A202C'
-                    },
-                    fontFamily: {
-                        sans: ['Plus Jakarta Sans', 'sans-serif'],
-                    },
+                    colors: { primary: '#56c142', secondary: '#FF8A00', accent: '#E8F5E9', dark: '#1A202C' },
+                    fontFamily: { sans: ['Plus Jakarta Sans', 'sans-serif'] },
                 }
             }
         }
     </script>
+
     <style>
-        .glass-header {
-            background: rgba(86, 193, 66, 0.9);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-        }
-        .product-card:hover .buy-btn {
-            transform: translateY(0);
-            opacity: 1;
-        }
-        .buy-btn {
-            transform: translateY(10px);
-            opacity: 0;
-            transition: all 0.3s ease;
-        }
+        /* Custom Animations */
         @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0px); }
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(2deg); }
         }
-        .float-animation { animation: float 3s ease-in-out infinite; }
+        .animate-float { animation: float 6s ease-in-out infinite; }
+
+        @keyframes pulse-soft {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.05); opacity: 0.9; }
+        }
+        .btn-pulse { animation: pulse-soft 2s infinite; }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        /* Chữ chạy Marquee */
+        .marquee {
+            white-space: nowrap;
+            overflow: hidden;
+            display: inline-block;
+            animation: marquee 30s linear infinite;
+        }
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Hiệu ứng mờ nền khi cuộn */
+        .header-scrolled {
+            background: rgba(86, 193, 66, 0.9);
+            padding: 0.5rem 1rem;
+            backdrop-filter: blur(15px);
+        }
     </style>
 </head>
-<body class="bg-slate-50 text-dark antialiased">
+<body class="bg-[#fdfdfd] text-dark antialiased overflow-x-hidden">
 
-    <!-- Header -->
-    <header class="glass-header text-white p-4 sticky top-0 z-50 shadow-sm border-b border-white/20">
-        <div class="max-w-7xl mx-auto flex items-center justify-between">
-            <a href="index.html" class="text-2xl font-extrabold tracking-tighter flex items-center gap-2">
-                <span class="bg-white text-primary px-2 py-1 rounded-lg">Nobi</span>nobinobi
-            </a>
-            <nav class="hidden md:flex space-x-8 text-sm font-bold uppercase tracking-widest">
-                <a href="#san-pham" class="hover:text-secondary transition-colors">Sản phẩm</a>
-                <a href="#uu-diem" class="hover:text-secondary transition-colors">Ưu điểm y khoa</a>
-                <a href="#feedback" class="hover:text-secondary transition-colors">Đánh giá</a>
-            </nav>
-            <div class="flex items-center gap-6">
-                <a href="#" class="relative p-2 hover:bg-white/10 rounded-full transition">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
-                    </svg>
-                    <span id="cart-count" class="absolute top-0 right-0 bg-secondary text-white text-[10px] font-bold rounded-full w-5 h-5 flex items-center justify-center border-2 border-primary">0</span>
-                </a>
-                <button class="md:hidden">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
-                    </svg>
-            </button>
+    <!-- Top Bar Marquee -->
+    <div class="bg-dark text-white py-2 overflow-hidden text-[10px] font-bold uppercase tracking-[0.2em]">
+        <div class="marquee flex gap-12 items-center">
+            <span>🔥 Ưu đãi tháng 5: Giảm 22% cho dòng Sukoyaka M1</span>
+            <span>✈️ Cam kết hàng bay AIR 100% nội địa Nhật</span>
+            <span>⭐ Đánh giá 5 sao từ 5000+ Mẹ bỉm sữa Việt Nam</span>
+            <span>🔥 Ưu đãi tháng 5: Giảm 22% cho dòng Sukoyaka M1</span>
+            <span>✈️ Cam kết hàng bay AIR 100% nội địa Nhật</span>
+            <span>⭐ Đánh giá 5 sao từ 5000+ Mẹ bỉm sữa Việt Nam</span>
         </div>
+        </div>
+    <!-- Header -->
+    <header id="main-header" class="fixed top-10 left-1/2 -translate-x-1/2 w-[95%] max-w-7xl z-50 transition-all duration-500 rounded-2xl px-6 py-4 flex items-center justify-between text-white border border-white/20 bg-primary/80 backdrop-blur-md shadow-lg">
+        <a href="index.html" class="text-2xl font-black tracking-tighter flex items-center gap-2 group">
+            <span class="bg-white text-primary px-2 py-1 rounded-lg group-hover:rotate-6 transition-transform">Nobi</span>nobinobi
+        </a>
+        <nav class="hidden lg:flex space-x-10 text-xs font-black uppercase tracking-widest">
+            <a href="#san-pham" class="hover:text-secondary transition-all">Sản phẩm</a>
+            <a href="#uu-diem" class="hover:text-secondary transition-all">Tại sao chọn Beanstalk?</a>
+            <a href="#feedback" class="hover:text-secondary transition-all">Cộng đồng</a>
+        </nav>
+        <div class="flex items-center gap-4">
+            <button class="bg-white/20 p-2 rounded-full hover:bg-secondary transition relative group">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                </svg>
+                <span class="absolute -top-1 -right-1 bg-secondary text-[8px] w-4 h-4 rounded-full flex items-center justify-center border border-white">2</span>
+            </button>
+            <a href="#san-pham" class="hidden sm:block bg-white text-primary font-bold px-5 py-2 rounded-xl text-xs hover:bg-secondary hover:text-white transition-all shadow-md">SĂN DEAL NGAY</a>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="relative bg-gradient-to-br from-primary via-[#6edb58] to-[#92e681] pt-12 pb-24 overflow-hidden">
-        <div class="absolute top-0 right-0 w-1/3 h-full bg-white/10 -skew-x-12 transform translate-x-1/2"></div>
-        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center relative z-10">
-            <div class="md:w-1/2 text-center md:text-left text-white">
-                <div class="inline-flex items-center gap-2 py-1 px-3 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 text-xs font-bold mb-6">
-                    <span class="flex h-2 w-2 rounded-full bg-secondary animate-pulse"></span>
-                    NHẬP KHẨU NỘI ĐỊA NHẬT CHÍNH HÃNG
+    <section class="relative min-h-screen flex items-center pt-20 overflow-hidden bg-slate-50">
+        <!-- Abstract Background Shapes -->
+        <div class="absolute top-20 right-[-10%] w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px]"></div>
+        <div class="absolute bottom-10 left-[-5%] w-[300px] h-[300px] bg-secondary/10 rounded-full blur-[80px]"></div>
+
+        <div class="max-w-7xl mx-auto px-4 w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div data-aos="fade-right" data-aos-duration="1000">
+                <div class="inline-flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow-sm border border-slate-100 text-xs font-bold text-primary mb-8">
+                    <span class="relative flex h-3 w-3">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-3 w-3 bg-primary"></span>
+                    </span>
+                    ƯU ĐÃI ĐỘC QUYỀN TẠI NOBINOBI
                 </div>
-                <h1 class="text-5xl md:text-7xl font-extrabold leading-[1.1] mb-6 drop-shadow-sm">
-                    Sữa Y Khoa <br/><span class="text-secondary">Beanstalk M1</span>
+                <h1 class="text-6xl lg:text-8xl font-extrabold text-slate-900 leading-[0.95] mb-8">
+                    Sữa Y Khoa <br/> <span class="text-primary italic">Chuẩn Nhật</span>
                 </h1>
-                <p class="text-lg md:text-xl mb-10 font-medium opacity-90 leading-relaxed max-w-xl">
-                    Sản phẩm duy nhất mô phỏng 99% thành phần sữa mẹ, chứa <span class="underline decoration-secondary decoration-2 underline-offset-4">Osteopontin (OPN)</span> giúp bé tiêu hóa khỏe, nói không với táo bón.
+                <p class="text-lg text-slate-500 font-medium leading-relaxed mb-10 max-w-lg">
+                    Sản phẩm duy nhất chứa <b>Osteopontin (OPN)</b> giúp bé tăng đề kháng vượt trội và hệ tiêu hóa khỏe mạnh như sữa mẹ.
                 </p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-                    <a href="#san-pham" class="bg-secondary hover:bg-orange-600 text-white font-bold text-lg py-5 px-10 rounded-2xl shadow-xl shadow-orange-900/20 transition-all hover:-translate-y-1 active:scale-95 flex items-center justify-center gap-2">
-                        MUA NGAY ƯU ĐÃI
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-                        </svg>
-                    </a>
-                    <a href="#uu-diem" class="bg-white/10 hover:bg-white/20 backdrop-blur-md text-white font-bold text-lg py-5 px-10 rounded-2xl border border-white/30 transition-all flex items-center justify-center">
-                        Tìm hiểu thêm
+                <div class="flex flex-wrap gap-4">
+                    <a href="#san-pham" class="btn-pulse bg-secondary text-white font-black px-10 py-5 rounded-2xl shadow-2xl shadow-secondary/30 hover:-translate-y-1 transition-all flex items-center gap-3">
+                        MUA NGAY - GIẢM 22%
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
                     </a>
                 </div>
             </div>
-            <div class="md:w-1/2 mt-16 md:mt-0 relative">
-                <div class="absolute inset-0 bg-white/20 blur-[100px] rounded-full"></div>
-                <img src="27ae0e3db0340cbd915e9c5aeb8c8f4f.webp" alt="Beanstalk Sukoyaka" class="relative z-10 w-full max-w-md mx-auto float-animation drop-shadow-[0_35px_35px_rgba(0,0,0,0.25)]">
+
+            <div class="relative" data-aos="zoom-in" data-aos-duration="1200">
+                <div class="animate-float relative z-10">
+                    <img src="27ae0e3db0340cbd915e9c5aeb8c8f4f.webp" alt="Beanstalk" class="w-full max-w-lg mx-auto drop-shadow-[0_50px_50px_rgba(0,0,0,0.15)]">
+                </div>
+                <!-- Floating Badges -->
+                <div data-aos="fade-up" data-aos-delay="500" class="absolute top-10 right-0 glass-card p-4 rounded-3xl shadow-xl z-20 flex items-center gap-4 animate-bounce">
+                    <div class="bg-primary text-white p-2 rounded-xl">🇯🇵</div>
+                    <div>
+                        <p class="text-[10px] font-black text-slate-400 uppercase tracking-tighter">Nội địa Nhật</p>
+                        <p class="text-sm font-bold text-slate-800">100% Chính hãng</p>
+                    </div>
+                </div>
+                <div data-aos="fade-up" data-aos-delay="700" class="absolute bottom-20 left-0 glass-card p-4 rounded-3xl shadow-xl z-20 flex items-center gap-4">
+                    <div class="bg-secondary text-white p-2 rounded-xl">🛡️</div>
+                    <div>
+                        <p class="text-[10px] font-black text-slate-400 uppercase tracking-tighter">Y khoa tin dùng</p>
+                        <p class="text-sm font-bold text-slate-800">An toàn tuyệt đối</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Product Section -->
-    <section id="san-pham" class="py-24 max-w-7xl mx-auto px-4">
-        <div class="flex flex-col md:flex-row items-end justify-between mb-16 gap-4">
-            <div class="max-w-2xl">
-                <h2 class="text-primary font-bold tracking-[0.2em] mb-2">DANH SÁCH SẢN PHẨM</h2>
-                <h3 class="text-4xl md:text-5xl font-black text-slate-900">Sự Lựa Choice Tốt Nhất <br/>Cho Hệ Tiêu Hóa Của Bé</h3>
-            </div>
-            <p class="text-slate-500 font-medium md:max-w-xs italic text-sm">
-                *Tất cả sản phẩm đều được kiểm định y khoa khắt khe tại Nhật Bản.
-            </p>
+    <!-- Stats Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center" data-aos="fade-up">
+                    <h3 class="text-5xl font-black text-primary mb-2">73</h3>
+                    <p class="text-slate-400 font-bold text-xs uppercase tracking-widest">Năm nghiên cứu</p>
+                </div>
+                <div class="text-center" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="text-5xl font-black text-primary mb-2">10k+</h3>
+                    <p class="text-slate-400 font-bold text-xs uppercase tracking-widest">Mẫu sữa mẹ</p>
+                </div>
+                <div class="text-center" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="text-5xl font-black text-primary mb-2">5M+</h3>
+                    <p class="text-slate-400 font-bold text-xs uppercase tracking-widest">Bé tin dùng</p>
+                </div>
+                <div class="text-center" data-aos="fade-up" data-aos-delay="300">
+                    <h3 class="text-5xl font-black text-primary mb-2">100%</h3>
+                    <p class="text-slate-400 font-bold text-xs uppercase tracking-widest">Chất lượng Nhật</p>
+                </div>
         </div>
+        </div>
+    </section>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            <!-- Product Item 1 -->
-            <div onclick="window.location.href='product.html'" class="product-card group cursor-pointer bg-white rounded-[2.5rem] p-6 shadow-sm border border-slate-100 hover:shadow-2xl transition-all duration-500 relative overflow-hidden flex flex-col">
-                <div class="absolute top-6 left-6 bg-red-500 text-white text-[10px] font-black px-3 py-1 rounded-full z-10 shadow-lg shadow-red-500/30">-22%</div>
-                <div class="relative overflow-hidden rounded-[2rem] mb-6 aspect-square bg-slate-50 p-4">
-                    <img src="7bf617ad-ac24-4d67-8ed3-547466ce2112.jfif" alt="Sukoyaka M1 800g" class="w-full h-full object-contain transform transition-transform duration-700 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                </div>
-                <div class="flex-grow">
-                    <h4 class="text-xl font-bold text-slate-900 mb-2 group-hover:text-primary transition-colors">Sukoyaka M1 (800g)</h4>
-                    <p class="text-slate-400 text-xs font-semibold mb-4 leading-relaxed">Số 0 y khoa dành cho bé từ 0-1 tuổi. Công thức đột phá Osteopontin.</p>
-                    <div class="flex items-center gap-3 mb-6">
-                        <span class="text-red-500 font-black text-2xl">550.000đ</span>
-                        <span class="text-slate-300 line-through text-sm font-bold">620k</span>
-                    </div>
-                </div>
-                <button class="buy-btn w-full bg-slate-900 hover:bg-primary text-white font-bold py-4 rounded-2xl shadow-lg transition-all">
-                    XEM CHI TIẾT
-                </button>
+    <!-- Products Grid -->
+    <section id="san-pham" class="py-32 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-20" data-aos="fade-down">
+                <h2 class="text-4xl md:text-6xl font-black text-slate-900 mb-6 leading-tight">Sản Phẩm Đang <span class="text-primary underline decoration-wavy decoration-primary/30">Gây Sốt</span></h2>
+                <p class="text-slate-500 font-medium">Bấm vào từng sản phẩm để xem chi tiết thông số y khoa.</p>
             </div>
 
-            <!-- Combo Product -->
-            <div onclick="window.location.href='product.html'" class="product-card group cursor-pointer bg-white rounded-[2.5rem] p-6 shadow-sm border-2 border-primary/20 hover:border-primary hover:shadow-2xl transition-all duration-500 relative overflow-hidden flex flex-col scale-105 z-10 shadow-xl shadow-primary/5">
-                <div class="absolute top-0 right-0 bg-primary text-white text-[10px] font-black px-4 py-2 rounded-bl-2xl z-10 uppercase tracking-widest">Bán chạy nhất</div>
-                <div class="relative overflow-hidden rounded-[2rem] mb-6 aspect-square bg-accent p-4">
-                    <img src="27ae0e3db0340cbd915e9c5aeb8c8f4f.webp" alt="Sukoyaka M1 Combo" class="w-full h-full object-contain transform transition-transform duration-700 group-hover:scale-110">
-                </div>
-                <div class="flex-grow text-center">
-                    <h4 class="text-xl font-bold text-slate-900 mb-2">Combo 2 Lon Tiết Kiệm</h4>
-                    <p class="text-slate-400 text-xs font-semibold mb-4 leading-relaxed">Lựa chọn thông minh cho mẹ. Miễn phí vận chuyển nội thành.</p>
-                    <div class="flex flex-col items-center mb-6">
-                        <span class="text-primary font-black text-3xl">1.090.000đ</span>
-                        <span class="text-slate-400 text-xs mt-1">Chỉ còn 545k / lon</span>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <!-- Product 1 -->
+                <div data-aos="fade-up" onclick="window.location.href='product.html'" class="group cursor-pointer bg-white rounded-[3rem] p-8 shadow-sm hover:shadow-2xl hover:-translate-y-4 transition-all duration-500 relative border border-slate-100">
+                    <div class="absolute top-8 right-8 bg-red-500 text-white text-[10px] font-black px-3 py-1 rounded-full">-22%</div>
+                    <div class="aspect-square mb-8 overflow-hidden rounded-[2.5rem] bg-slate-50 flex items-center justify-center">
+                        <img src="7bf617ad-ac24-4d67-8ed3-547466ce2112.jfif" class="w-3/4 group-hover:scale-110 transition-transform duration-700">
+                    </div>
+                    <h4 class="text-2xl font-bold mb-2 group-hover:text-primary transition-colors">Sukoyaka M1 (800g)</h4>
+                    <p class="text-slate-400 text-sm mb-6 leading-relaxed">Công thức dành riêng cho bé 0-1 tuổi, mát như sữa mẹ.</p>
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-red-500 font-black text-2xl">550.000đ</p>
+                            <p class="text-slate-300 line-through text-xs font-bold">620.000đ</p>
+                        </div>
+                        <div class="bg-primary text-white p-4 rounded-2xl group-hover:bg-secondary transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+                        </div>
                     </div>
                 </div>
-                <button class="buy-btn w-full bg-primary hover:bg-secondary text-white font-bold py-4 rounded-2xl shadow-lg transition-all">
-                    XEM CHI TIẾT
-                </button>
-            </div>
 
-            <div onclick="window.location.href='product.html'" class="product-card group cursor-pointer bg-white rounded-[2.5rem] p-6 shadow-sm border border-slate-100 hover:shadow-2xl transition-all duration-500 relative overflow-hidden flex flex-col">
-                <div class="relative overflow-hidden rounded-[2rem] mb-6 aspect-square bg-slate-50 p-4">
-                    <img src="75ee42ed78613764e0b4ad76addd9812.webp" alt="Sukoyaka M1 Thanh" class="w-full h-full object-contain transform transition-transform duration-700 group-hover:scale-110">
-                </div>
-                <div class="flex-grow">
-                    <h4 class="text-xl font-bold text-slate-900 mb-2 group-hover:text-primary transition-colors">Sukoyaka M1 (Thanh)</h4>
-                    <p class="text-slate-400 text-xs font-semibold mb-4 leading-relaxed">Dạng thanh tiện lợi cho mẹ mang đi sinh hoặc du lịch.</p>
-                    <div class="flex items-center gap-3 mb-6">
-                        <span class="text-red-500 font-black text-2xl">490.000đ</span>
+                <!-- Product 2 (Combo) -->
+                <div data-aos="fade-up" data-aos-delay="200" onclick="window.location.href='product.html'" class="group cursor-pointer bg-white rounded-[3rem] p-8 shadow-xl border-4 border-primary/20 hover:border-primary transition-all duration-500 relative -translate-y-4">
+                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-white text-[10px] font-black px-6 py-2 rounded-full uppercase tracking-widest shadow-lg">KHUYÊN DÙNG</div>
+                    <div class="aspect-square mb-8 overflow-hidden rounded-[2.5rem] bg-accent flex items-center justify-center">
+                        <img src="27ae0e3db0340cbd915e9c5aeb8c8f4f.webp" class="w-3/4 group-hover:scale-110 transition-transform duration-700">
+                    </div>
+                    <h4 class="text-2xl font-bold mb-2 group-hover:text-primary transition-colors">Combo 2 Lon M1</h4>
+                    <p class="text-slate-400 text-sm mb-6 leading-relaxed">Tiết kiệm hơn cho mẹ, quà tặng hỏa tốc từ Nobinobi.</p>
+                    <div class="flex items-center justify-between">
+                        <p class="text-primary font-black text-3xl">1.090.000đ</p>
+                        <div class="bg-primary text-white p-4 rounded-2xl group-hover:bg-secondary transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+                        </div>
                     </div>
                 </div>
-                <button class="buy-btn w-full bg-slate-900 hover:bg-primary text-white font-bold py-4 rounded-2xl shadow-lg transition-all">
-                    XEM CHI TIẾT
-                </button>
-            </div>
 
-            <div onclick="window.location.href='product.html'" class="product-card group cursor-pointer bg-white rounded-[2.5rem] p-6 shadow-sm border border-slate-100 hover:shadow-2xl transition-all duration-500 relative overflow-hidden flex flex-col">
-                <div class="absolute top-6 left-6 bg-blue-500 text-white text-[10px] font-black px-3 py-1 rounded-full z-10 shadow-sm">MẪU MỚI</div>
-                <div class="relative overflow-hidden rounded-[2rem] mb-6 aspect-square bg-slate-50 p-4">
-                    <img src="7bf617ad-ac24-4d67-8ed3-547466ce2112.jfif" alt="Beanstalk Sukoyaka" class="w-full h-full object-contain transform transition-transform duration-700 group-hover:scale-110">
-                </div>
-                <div class="flex-grow">
-                    <h4 class="text-xl font-bold text-slate-900 mb-2 group-hover:text-primary transition-colors">Beanstalk Sukoyaka</h4>
-                    <p class="text-slate-400 text-xs font-semibold mb-4 leading-relaxed">Công thức nội địa chuẩn Nhật Bản, bảo vệ bé yêu.</p>
-                    <div class="flex items-center gap-3 mb-6">
-                        <span class="text-red-500 font-black text-2xl">550.000đ</span>
+                <!-- Product 3 -->
+                <div data-aos="fade-up" data-aos-delay="400" onclick="window.location.href='product.html'" class="group cursor-pointer bg-white rounded-[3rem] p-8 shadow-sm hover:shadow-2xl hover:-translate-y-4 transition-all duration-500 relative border border-slate-100">
+                    <div class="aspect-square mb-8 overflow-hidden rounded-[2.5rem] bg-slate-50 flex items-center justify-center">
+                        <img src="75ee42ed78613764e0b4ad76addd9812.webp" class="w-3/4 group-hover:scale-110 transition-transform duration-700">
+                    </div>
+                    <h4 class="text-2xl font-bold mb-2 group-hover:text-primary transition-colors">Sukoyaka Dạng Thanh</h4>
+                    <p class="text-slate-400 text-sm mb-6 leading-relaxed">Tiện lợi mang đi du lịch hoặc cho bé mang đi sinh.</p>
+                    <div class="flex items-center justify-between">
+                        <p class="text-red-500 font-black text-2xl">490.000đ</p>
+                        <div class="bg-primary text-white p-4 rounded-2xl group-hover:bg-secondary transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+                        </div>
                     </div>
                 </div>
-                <button class="buy-btn w-full bg-slate-900 hover:bg-primary text-white font-bold py-4 rounded-2xl shadow-lg transition-all">
-                    XEM CHI TIẾT
-                </button>
             </div>
-
         </div>
     </section>
 
@@ -292,18 +324,53 @@
         </div>
     </footer>
 
-    <script>
-        let count = 0;
-        function addToCart() {
-            count++;
-            document.getElementById('cart-count').innerText = count;
-            document.getElementById('cart-count').classList.add('scale-150');
-            setTimeout(() => {
-                document.getElementById('cart-count').classList.remove('scale-150');
-            }, 200);
-            alert("Đã thêm sản phẩm vào giỏ hàng!");
-        }
-    </script>
+    <!-- Floating Footer CTA -->
+    <div id="sticky-cta" class="fixed bottom-8 left-1/2 -translate-x-1/2 z-40 w-[90%] max-w-md scale-0 transition-transform duration-500">
+        <div class="bg-dark text-white p-4 rounded-[2rem] shadow-2xl flex items-center justify-between gap-4 border border-white/10">
+            <div class="flex items-center gap-3 pl-2">
+                <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center font-black">N</div>
+                <div>
+                    <p class="text-[10px] font-bold text-slate-400 uppercase">Đang có 12 người xem</p>
+                    <p class="text-xs font-black text-white">Chốt đơn ngay kẻo lỡ!</p>
+                </div>
+            </div>
+            <button onclick="window.location.href='#san-pham'" class="bg-primary text-white px-6 py-3 rounded-xl font-black text-xs hover:bg-secondary transition-all">SĂN DEAL</button>
+        </div>
+    </div>
 
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            once: true,
+            mirror: false,
+        });
+
+        // Header and Sticky CTA effects on scroll
+        const header = document.getElementById('main-header');
+        const stickyCta = document.getElementById('sticky-cta');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('header-scrolled');
+                header.classList.remove('top-10');
+                header.classList.add('top-2');
+                header.style.width = '98%';
+            } else {
+                header.classList.remove('header-scrolled');
+                header.classList.add('top-10');
+                header.classList.remove('top-2');
+                header.style.width = '95%';
+            }
+
+            // Show sticky CTA after scrolling down
+            if (window.scrollY > 800) {
+                stickyCta.classList.remove('scale-0');
+                stickyCta.classList.add('scale-100');
+            } else {
+                stickyCta.classList.add('scale-0');
+                stickyCta.classList.remove('scale-100');
+            }
+        });
+    </script>
 </body>
 </html>
