@@ -1,129 +1,202 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="vi" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sản Phẩm Dinh Dưỡng Công Thức BeanStalk Tsuyoiko 800g - Nobinobi</title>
-    <meta name="description" content="Mua sữa BeanStalk Tsuyoiko 800g chính hãng tại Nobinobi. Hỗ trợ tiêu hóa, tăng đề kháng cho bé 9 tháng - 3 tuổi. Sẵn kho Thủ Đức, Quận 7, Bắc Ninh.">
-    <meta name="keywords" content="BeanStalk Tsuyoiko, Sữa nội địa Nhật, BeanStalk 800g Thủ Đức, Sữa hộp kháng khuẩn BeanStalk">
-    
+    <title>Sữa BeanStalk Tsuyoiko 800g | Nobinobi - Hệ Thống Sữa Nội Địa Nhật</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#56c142',
+                        secondary: '#FF8A00',
+                        accent: '#F0F9F0',
+                        dark: '#1A202C'
+                    },
+                    fontFamily: { sans: ['Plus Jakarta Sans', 'sans-serif'] },
+                }
+            }
+        }
+    </script>
     <style>
-        body { font-family: 'Nunito', sans-serif; }
-        .scrollbar-hide::-webkit-scrollbar { display: none; }
+        .glass-header { background: rgba(86, 193, 66, 0.95); backdrop-filter: blur(12px); }
+        .branch-card input:checked + div { border-color: #56c142; background-color: #F0F9F0; }
+        .branch-card input:checked + div .check-icon { display: block; }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800 tracking-tight">
+<body class="bg-slate-50 text-dark antialiased">
 
-    <header class="bg-[#56c142] border-b border-[#4caf3b] sticky top-0 z-50 shadow-sm text-white">
-        <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
-            <a href="index.html" class="text-3xl font-black tracking-tight hover:text-orange-200 transition">Nobinobi</a>
-            <div class="flex items-center space-x-6 text-sm font-semibold">
-                <a href="index.html" class="hover:text-green-100">Trang chủ</a>
-                <span class="text-green-200">/</span>
-                <span class="text-white">BeanStalk Tsuyoiko</span>
+    <!-- Header (Đồng bộ với Index) -->
+    <header class="glass-header text-white p-4 sticky top-0 z-50 shadow-sm border-b border-white/10">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <a href="index.html" class="text-2xl font-extrabold tracking-tighter flex items-center gap-2">
+                <span class="bg-white text-primary px-2 py-1 rounded-lg">Nobi</span>nobinobi
+            </a>
+            <nav class="hidden md:flex space-x-6 text-sm font-bold uppercase tracking-widest">
+                <a href="index.html" class="hover:text-secondary transition">Trang chủ</a>
+                <span class="opacity-30">/</span>
+                <span class="text-white/80">Chi tiết sản phẩm</span>
+            </nav>
+            <div class="flex items-center gap-4">
+                <div class="hidden sm:block text-right">
+                    <p class="text-[10px] uppercase font-bold opacity-70">Hotline hỗ trợ</p>
+                    <p class="text-sm font-black">1900.xxxx</p>
+                </div>
+                <a href="#" class="bg-white/10 p-2 rounded-full hover:bg-white/20 transition">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                    </svg>
+                </a>
             </div>
         </div>
     </header>
 
-    <main class="max-w-7xl mx-auto px-4 py-8">
-        
-        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-8 flex flex-col md:flex-row gap-10">
-            <div class="md:w-5/12 flex flex-col items-center">
-                <div class="w-full relative border border-gray-100 rounded-2xl p-4 flex justify-center items-center mb-4 bg-white">
-                    <div class="absolute top-4 left-4 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded">-15%</div>
-                    <img src="7bf617ad-ac24-4d67-8ed3-547466ce2112.jfif" alt="Sữa BeanStalk Tsuyoiko 800g" class="w-4/5 h-auto object-contain">
+    <main class="max-w-7xl mx-auto px-4 py-12">
+        <!-- Product Detail Section -->
+        <div class="bg-white rounded-[3rem] shadow-sm border border-slate-100 p-6 md:p-12 flex flex-col lg:flex-row gap-16">
+
+            <!-- Left: Image Gallery -->
+            <div class="lg:w-1/2">
+                <div class="sticky top-32">
+                    <div class="relative group bg-slate-50 rounded-[2.5rem] p-8 overflow-hidden border border-slate-100">
+                        <div class="absolute top-6 left-6 bg-red-500 text-white font-black px-4 py-1 rounded-full z-10 shadow-lg">-15%</div>
+                        <img src="7bf617ad-ac24-4d67-8ed3-547466ce2112.jfif" alt="Sữa BeanStalk" class="w-full h-auto object-contain transform group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                    <!-- Sub images -->
+                    <div class="grid grid-cols-4 gap-4 mt-6">
+                        <div class="border-2 border-primary rounded-2xl p-2 cursor-pointer bg-accent"><img src="7bf617ad-ac24-4d67-8ed3-547466ce2112.jfif" class="w-full"></div>
+                        <div class="border border-slate-100 rounded-2xl p-2 cursor-pointer hover:border-primary transition"><img src="27ae0e3db0340cbd915e9c5aeb8c8f4f.webp" class="w-full"></div>
+                        <div class="border border-slate-100 rounded-2xl p-2 cursor-pointer hover:border-primary transition"><img src="75ee42ed78613764e0b4ad76addd9812.webp" class="w-full"></div>
+                        <div class="border border-slate-100 rounded-2xl p-2 cursor-pointer hover:border-primary transition"><img src="8a315e2a-8043-4345-8eaf-8bd1ab671d62.jfif" class="w-full"></div>
+                    </div>
                 </div>
             </div>
 
-            <div class="md:w-7/12 flex flex-col">
-                <div class="mb-4">
-                    <span class="text-gray-500 font-semibold mr-2">Thương hiệu:</span> 
-                    <span class="text-[#56c142] font-bold">Bean Stalk</span>
+            <!-- Right: Product Info -->
+            <div class="lg:w-1/2 flex flex-col">
+                <div class="mb-6">
+                    <span class="bg-primary/10 text-primary text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest">Thương hiệu: BeanStalk Nhật Bản</span>
                 </div>
 
-                <div class="flex flex-wrap gap-4 mb-4 text-sm font-bold text-green-600">
-                    <span class="flex items-center">🛡️ 100% chính hãng</span>
-                    <span class="flex items-center">✈️ Nhập khẩu từ Nhật Bản</span>
-                </div>
-
-                <h1 class="text-2xl md:text-3xl font-black text-gray-900 leading-tight mb-3">
-                    <span class="bg-red-500 text-white text-sm px-2 py-1 rounded mr-2 align-middle">Giảm giá</span>
-                    Sản Phẩm Dinh Dưỡng Công Thức với mục đích ăn bổ sung cho trẻ từ 9 tháng đến 3 tuổi BeanStalk Tsuyoiko 800g
+                <h1 class="text-3xl md:text-4xl font-black text-slate-900 leading-tight mb-4">
+                    Sản Phẩm Dinh Dưỡng BeanStalk Tsuyoiko <span class="text-primary">(800g)</span>
                 </h1>
 
-                <div class="bg-gray-50 rounded-xl p-4 mb-6 flex items-baseline">
-                    <span class="text-gray-400 line-through text-xl mr-4">550.000 ₫</span>
-                    <span class="text-orange-500 text-4xl font-black">470.000 ₫</span>
+                <div class="flex items-center gap-2 mb-8 text-secondary">
+                    <div class="flex">★★★★★</div>
+                    <span class="text-slate-400 text-sm font-medium">(128 đánh giá từ mẹ bỉm)</span>
                 </div>
 
-                <div class="flex items-start mb-8 border-t border-gray-100 pt-6">
-                    <span class="w-32 text-gray-600 font-semibold mt-2">Chọn kho*</span>
-                    <div class="flex-1 space-y-3">
-                        <p class="text-sm font-bold text-gray-700 mb-2">Có <span class="text-orange-500">2</span> chi nhánh còn hàng</p>
-                        <label class="block relative border-2 border-orange-500 rounded-xl p-4 cursor-pointer bg-orange-50">
-                            <input type="radio" name="kho" checked class="absolute top-5 left-4 accent-orange-500 w-4 h-4">
-                            <div class="pl-8">
-                                <span class="font-bold text-gray-900 block">Kho Thủ Đức</span>
-                                <span class="text-sm text-gray-500">48 Đường B4, An Lợi Đông, Thủ Đức, HCM</span>
+                <div class="bg-slate-50 rounded-3xl p-8 mb-8 border border-slate-100 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 p-4 opacity-10">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-24 w-24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12z" />
+                        </svg>
+                    </div>
+                    <div class="flex items-baseline gap-4">
+                        <span class="text-4xl md:text-5xl font-black text-secondary">470.000đ</span>
+                        <span class="text-xl text-slate-300 line-through">550.000đ</span>
+                    </div>
+                    <p class="text-primary text-sm font-bold mt-2">✨ Tiết kiệm ngay 80.000đ khi mua hôm nay</p>
+                </div>
+
+                <!-- Branch Selector -->
+                <div class="mb-10">
+                    <h3 class="text-sm font-black text-slate-900 uppercase tracking-widest mb-4 flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
+                        </svg>
+                        Chọn kho hàng gần bạn
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <label class="branch-card relative cursor-pointer group">
+                            <input type="radio" name="branch" checked class="hidden">
+                            <div class="border-2 border-slate-100 rounded-2xl p-4 transition-all group-hover:border-primary/50">
+                                <div class="flex justify-between items-start">
+                                    <span class="font-bold text-slate-900">Kho Thủ Đức</span>
+                                    <span class="check-icon hidden text-primary"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg></span>
+                                </div>
+                                <p class="text-xs text-slate-500 mt-1 leading-relaxed">48 Đường B4, An Lợi Đông, Thủ Đức, TP.HCM</p>
                             </div>
-                            <div class="absolute top-0 right-0 bg-orange-500 text-white text-xs px-2 py-1 rounded-bl-lg rounded-tr-lg">✓</div>
                         </label>
-                        <label class="block relative border border-gray-200 rounded-xl p-4 cursor-pointer hover:border-gray-300 transition">
-                            <input type="radio" name="kho" class="absolute top-5 left-4 accent-orange-500 w-4 h-4">
-                            <div class="pl-8">
-                                <span class="font-bold text-gray-900 block">Chi nhánh kho HCM</span>
-                                <span class="text-sm text-gray-500">96 Đào Trí, Phường Phú Thuận, Q7, TP HCM</span>
+                        <label class="branch-card relative cursor-pointer group">
+                            <input type="radio" name="branch" class="hidden">
+                            <div class="border-2 border-slate-100 rounded-2xl p-4 transition-all group-hover:border-primary/50">
+                                <div class="flex justify-between items-start">
+                                    <span class="font-bold text-slate-900">Chi nhánh Quận 7</span>
+                                    <span class="check-icon hidden text-primary"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg></span>
+                                </div>
+                                <p class="text-xs text-slate-500 mt-1 leading-relaxed">96 Đào Trí, Phường Phú Thuận, Q7, TP.HCM</p>
                             </div>
                         </label>
                     </div>
                 </div>
 
-                <div class="flex space-x-4 mt-auto">
-                    <button class="flex-1 bg-[#eef5db] hover:bg-[#e0eca8] text-[#719122] border border-[#a8c64e] font-black py-4 rounded-xl transition duration-300 text-lg">
-                        Thêm vào giỏ hàng
-                    </button>
-                    <button class="flex-1 bg-[#a5c941] hover:bg-[#8eb333] text-white font-black py-4 rounded-xl shadow-lg transition duration-300 text-lg">
-                        Mua ngay
-                    </button>
+                <div class="flex flex-col sm:flex-row gap-4 mt-auto">
+                    <button class="flex-1 bg-slate-900 text-white font-black py-5 rounded-2xl hover:bg-slate-800 transition shadow-xl active:scale-95">THÊM VÀO GIỎ HÀNG</button>
+                    <button class="flex-1 bg-primary text-white font-black py-5 rounded-2xl hover:bg-secondary transition shadow-xl shadow-primary/20 active:scale-95">MUA NGAY</button>
                 </div>
             </div>
         </div>
 
-        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-10 mt-8">
-            <h2 class="text-2xl font-black text-gray-900 border-b border-gray-100 pb-4 mb-6">Mô Tả Sản Phẩm & Hỏi Đáp (FAQ)</h2>
-            
-            <div class="text-gray-700 leading-relaxed space-y-4 text-lg">
-                <p>Bean Stalk Tsuyoiko Follow-up Formula Milk là sản phẩm dinh dưỡng công thức đặc biệt, được nghiên cứu dành riêng cho trẻ từ 9 tháng đến 3 tuổi.</p>
-                <img src="8a315e2a-8043-4345-8eaf-8bd1ab671d62.jfif" alt="Thành phần sản phẩm Beanstalk" class="w-full max-w-3xl rounded-2xl shadow-sm my-6">
-                
-                <h3 class="font-black text-gray-900 text-xl mt-8 mb-4 text-[#56c142]">Câu Hỏi Thường Gặp (FAQ)</h3>
-                
-                <ul class="space-y-4">
-                    <li class="bg-gray-50 p-4 rounded-lg border-l-4 border-orange-500">
-                        <strong class="text-gray-900 block mb-1">Q: Cách pha sữa BeanStalk Tsuyoiko chuẩn xác như thế nào?</strong>
-                        Mẹ dùng 1 thìa gạt (5.6g) pha được 40mL sữa. Pha với nước ấm trên 50°C, lắc đều và để nguội trước khi cho bé uống. Không đun bằng lò vi sóng.
-                    </li>
-                    <li class="bg-gray-50 p-4 rounded-lg border-l-4 border-orange-500">
-                        <strong class="text-gray-900 block mb-1">Q: Điểm đặc biệt của vỏ bao bì sữa BeanStalk là gì?</strong>
-                        Bean Stalk tiên phong áp dụng công nghệ xử lý kháng khuẩn bao bì giúp bảo đảm duy trì chất lượng của sản phẩm bên trong.
-                    </li>
-                    <li class="bg-gray-50 p-4 rounded-lg border-l-4 border-orange-500">
-                        <strong class="text-gray-900 block mb-1">Q: Sữa BeanStalk Tsuyoiko mang lại lợi ích gì cho bé?</strong>
-                        Sữa đảm bảo cho bé nhận đủ các dưỡng chất thiết yếu cần thiết cho sự phát triển khỏe mạnh toàn diện, cả về thể chất lẫn trí não.
-                    </li>
-                </ul>
+        <!-- Description Section -->
+        <div class="mt-12 grid grid-cols-1 lg:grid-cols-3 gap-12">
+            <div class="lg:col-span-2 space-y-8">
+                <div class="bg-white rounded-[2.5rem] p-8 md:p-12 shadow-sm border border-slate-100">
+                    <h2 class="text-2xl font-black mb-8 border-b border-slate-100 pb-4">Chi tiết sản phẩm</h2>
+                    <div class="prose prose-slate max-w-none text-slate-600 leading-[1.8]">
+                        <p class="mb-6">Bean Stalk Tsuyoiko Follow-up Formula Milk là dòng sữa công thức số 2 nổi tiếng tại Nhật, được thiết kế tối ưu cho trẻ trong giai đoạn ăn dặm (9 tháng - 3 tuổi). Giai đoạn này bé cần bổ sung Sắt và Canxi - hai thành phần thường thiếu hụt trong sữa mẹ và thực phẩm hằng ngày.</p>
+                        <img src="8a315e2a-8043-4345-8eaf-8bd1ab671d62.jfif" class="rounded-3xl my-8 w-full shadow-lg">
+                        <h4 class="text-xl font-bold text-slate-900 mb-4 uppercase tracking-tight">Ưu điểm vượt trội:</h4>
+                        <ul class="list-disc pl-5 space-y-3">
+                            <li>Bổ sung hàm lượng Sắt & Vitamin C tối ưu giúp hấp thụ sắt hiệu quả nhất.</li>
+                            <li>Chứa 5 loại Nucleotides tương tự sữa mẹ giúp tăng sức đề kháng tự nhiên.</li>
+                            <li>Công nghệ bao bì kháng khuẩn đầu tiên trên thế giới.</li>
+                            <li>DHA và Canxi hỗ trợ phát triển trí não và khung xương vững chắc.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lg:col-span-1">
+                <div class="bg-primary rounded-[2.5rem] p-8 text-white sticky top-32">
+                    <h3 class="text-xl font-black mb-6 flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        Hỏi đáp nhanh
+                    </h3>
+                    <div class="space-y-6">
+                        <div>
+                            <p class="font-bold mb-2">Cách pha chuẩn?</p>
+                            <p class="text-sm opacity-90">1 thìa gạt (5.6g) pha được 40ml sữa. Dùng nước ấm 50°C để bảo toàn dinh dưỡng.</p>
+                        </div>
+                        <hr class="opacity-20">
+                        <div>
+                            <p class="font-bold mb-2">Giao hàng bao lâu?</p>
+                            <p class="text-sm opacity-90">Khu vực TP.HCM hỏa tốc trong 2h. Các tỉnh khác từ 2-3 ngày.</p>
+                        </div>
+                        <hr class="opacity-20">
+                        <div class="bg-white/10 p-4 rounded-2xl mt-8">
+                            <p class="text-sm font-medium">Cần hỗ trợ thêm?</p>
+                            <button class="w-full bg-white text-primary font-black py-3 rounded-xl mt-3 text-sm">NHẮN TIN ZALO</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-
     </main>
 
-    <footer class="bg-gray-900 text-white py-12 text-center mt-12 border-t-8 border-[#56c142]">
-        <div class="max-w-4xl mx-auto px-4">
-            <p class="font-bold text-teal-400 mb-2">Hệ Thống Phân Phối Farmi / Nobinobi:</p>
-            <p class="text-sm text-gray-400 mb-6">Thủ Đức (HCM) | Quận 7 (HCM) | Hai Bà Trưng (Bắc Ninh)</p>
-            <p class="text-gray-500 font-medium">© 2026 Nobinobi.vn - Đại lý Sữa Beanstalk Nội Địa Nhật Chính Hãng.</p>
+    <!-- Footer đồng bộ -->
+    <footer class="bg-dark text-white pt-20 pb-10 mt-20">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="text-slate-500 font-bold mb-4 uppercase tracking-[0.3em] text-xs">Nobinobi - Sữa y khoa Nhật Bản</p>
+            <p class="text-slate-400 text-sm italic">Sản phẩm này không phải là thuốc và không có tác dụng thay thế thuốc chữa bệnh.</p>
+            <div class="h-[1px] bg-white/5 my-8"></div>
+            <p class="text-xs opacity-40">© 2026 Nobinobi. All rights reserved.</p>
         </div>
     </footer>
 
