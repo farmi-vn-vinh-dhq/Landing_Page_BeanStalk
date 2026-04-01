@@ -29,7 +29,6 @@
 </head>
 <body class="bg-slate-100 text-dark antialiased">
 
-    <!-- Header (Đồng bộ với Index) -->
     <header class="glass-header text-white p-4 sticky top-0 z-50 shadow-sm border-b border-white/10">
         <div class="max-w-7xl mx-auto flex items-center justify-between">
             <a href="index.html" class="text-2xl font-extrabold tracking-tighter flex items-center gap-2">
@@ -45,27 +44,25 @@
                     <p class="text-[10px] uppercase font-bold opacity-70">Hotline hỗ trợ</p>
                     <p class="text-sm font-black">1900.xxxx</p>
                 </div>
-                <a href="#" class="bg-white/10 p-2 rounded-full hover:bg-white/20 transition">
+                <a href="cart.html" class="bg-white/10 p-2 rounded-full hover:bg-white/20 transition relative group cursor-pointer">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
                     </svg>
+                    <span id="cart-count-header" class="absolute -top-1 -right-1 bg-secondary text-[10px] w-4 h-4 rounded-full flex items-center justify-center border border-white font-bold text-white">0</span>
                 </a>
             </div>
         </div>
     </header>
 
     <main class="max-w-7xl mx-auto px-4 py-12">
-        <!-- Product Detail Section -->
         <div class="bg-white rounded-[3rem] shadow-sm border border-slate-100 p-6 md:p-12 flex flex-col lg:flex-row gap-16">
 
-            <!-- Left: Image Gallery -->
             <div class="lg:w-1/2">
                 <div class="sticky top-32">
                     <div class="relative group bg-slate-100 rounded-[2.5rem] p-8 overflow-hidden border border-slate-100">
                         <div class="absolute top-6 left-6 bg-red-500 text-white font-black px-4 py-1 rounded-full z-10 shadow-lg">-15%</div>
                         <img src="7bf617ad-ac24-4d67-8ed3-547466ce2112.jfif" alt="Sữa BeanStalk" class="w-full h-auto object-contain transform group-hover:scale-105 transition-transform duration-700">
                     </div>
-                    <!-- Sub images -->
                     <div class="grid grid-cols-4 gap-4 mt-6">
                         <div class="border-2 border-primary rounded-2xl p-2 cursor-pointer bg-accent"><img src="7bf617ad-ac24-4d67-8ed3-547466ce2112.jfif" class="w-full"></div>
                         <div class="border border-slate-100 rounded-2xl p-2 cursor-pointer hover:border-primary transition"><img src="27ae0e3db0340cbd915e9c5aeb8c8f4f.webp" class="w-full"></div>
@@ -75,7 +72,6 @@
                 </div>
             </div>
 
-            <!-- Right: Product Info -->
             <div class="lg:w-1/2 flex flex-col">
                 <div class="mb-6">
                     <span class="bg-primary/10 text-primary text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest">Thương hiệu: BeanStalk Nhật Bản</span>
@@ -103,7 +99,6 @@
                     <p class="text-primary text-sm font-bold mt-2">✨ Tiết kiệm ngay 80.000đ khi mua hôm nay</p>
                 </div>
 
-                <!-- Branch Selector -->
                 <div class="mb-10">
                     <h3 class="text-sm font-black text-slate-900 uppercase tracking-widest mb-4 flex items-center gap-2">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary" viewBox="0 0 20 20" fill="currentColor">
@@ -136,13 +131,12 @@
                 </div>
 
                 <div class="flex flex-col sm:flex-row gap-4 mt-auto">
-                    <button class="flex-1 bg-slate-900 text-white font-black py-5 rounded-2xl hover:bg-slate-800 transition shadow-xl active:scale-95">THÊM VÀO GIỎ HÀNG</button>
-                    <button class="flex-1 bg-primary text-white font-black py-5 rounded-2xl hover:bg-secondary transition shadow-xl shadow-primary/20 active:scale-95">MUA NGAY</button>
+                    <button onclick="addToCart('Sữa BeanStalk Tsuyoiko 800g', '470.000đ', '7bf617ad-ac24-4d67-8ed3-547466ce2112.jfif')" class="flex-1 bg-slate-900 text-white font-black py-5 rounded-2xl hover:bg-slate-800 transition shadow-xl active:scale-95">THÊM VÀO GIỎ HÀNG</button>
+                    <button onclick="window.location.href='cart.html'" class="flex-1 bg-primary text-white font-black py-5 rounded-2xl hover:bg-secondary transition shadow-xl shadow-primary/20 active:scale-95">MUA NGAY</button>
                 </div>
             </div>
         </div>
 
-        <!-- Description Section -->
         <div class="mt-12 grid grid-cols-1 lg:grid-cols-3 gap-12">
             <div class="lg:col-span-2 space-y-8">
                 <div class="bg-white rounded-[2.5rem] p-8 md:p-12 shadow-sm border border-slate-100">
@@ -190,7 +184,6 @@
         </div>
     </main>
 
-    <!-- Footer đồng bộ -->
     <footer class="bg-dark text-white pt-20 pb-10 mt-20">
         <div class="max-w-7xl mx-auto px-4 text-center">
             <p class="text-slate-500 font-bold mb-4 uppercase tracking-[0.3em] text-xs">Nobinobi - Sữa y khoa Nhật Bản</p>
@@ -200,5 +193,38 @@
         </div>
     </footer>
 
+    <script>
+        function getCart() {
+            const cart = localStorage.getItem('cart');
+            return cart ? JSON.parse(cart) : [];
+        }
+
+        function saveCart(cart) {
+            localStorage.setItem('cart', JSON.stringify(cart));
+        }
+
+        function updateCartCount() {
+            const cart = getCart();
+            const countElement = document.getElementById('cart-count-header');
+            if (countElement) countElement.innerText = cart.length;
+        }
+
+        function addToCart(name, price, image) {
+            const cart = getCart();
+            cart.push({
+                id: 'beanstalk-' + Date.now(),
+                name: name,
+                price: price,
+                image: image
+            });
+            saveCart(cart);
+            updateCartCount();
+            alert(`Tuyệt vời! Sản phẩm ${name} đã được thêm vào giỏ hàng.`);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            updateCartCount();
+        });
+    </script>
 </body>
 </html>

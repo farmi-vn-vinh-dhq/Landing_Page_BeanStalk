@@ -70,7 +70,8 @@
             <span>✈️ Cam kết hàng bay AIR 100% nội địa Nhật</span>
             <span>⭐ Đánh giá 5 sao từ 5000+ Mẹ bỉm sữa Việt Nam</span>
         </div>
-        </div>
+    </div>
+    
     <header id="main-header" class="fixed top-10 left-1/2 -translate-x-1/2 w-[95%] max-w-7xl z-50 transition-all duration-500 rounded-2xl px-6 py-4 flex items-center justify-between text-white border border-white/20 bg-primary/80 backdrop-blur-md shadow-lg">
         <a href="index.html" class="text-2xl font-black tracking-tighter flex items-center gap-2 group">
             <span class="bg-white text-primary px-2 py-1 rounded-lg group-hover:rotate-6 transition-transform">Nobi</span>nobinobi
@@ -81,12 +82,12 @@
             <a href="#feedback" class="hover:text-secondary transition-all">Cộng đồng</a>
         </nav>
         <div class="flex items-center gap-4">
-            <button class="bg-white/20 p-2 rounded-full hover:bg-secondary transition relative group">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+            <a href="cart.html" class="bg-white/20 p-2 rounded-full hover:bg-secondary transition relative group cursor-pointer">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
                 </svg>
-                <span class="absolute -top-1 -right-1 bg-secondary text-[8px] w-4 h-4 rounded-full flex items-center justify-center border border-white">2</span>
-            </button>
+                <span id="cart-count-header" class="absolute -top-1 -right-1 bg-secondary text-[10px] w-4 h-4 rounded-full flex items-center justify-center border border-white font-bold text-white">0</span>
+            </a>
             <a href="#san-pham" class="hidden sm:block bg-white text-primary font-bold px-5 py-2 rounded-xl text-xs hover:bg-secondary hover:text-white transition-all shadow-md">SĂN DEAL NGAY</a>
         </div>
     </header>
@@ -159,7 +160,7 @@
                     <h3 class="text-5xl font-black text-primary mb-2">100%</h3>
                     <p class="text-slate-400 font-bold text-xs uppercase tracking-widest">Chất lượng Nhật</p>
                 </div>
-        </div>
+            </div>
         </div>
     </section>
 
@@ -183,8 +184,8 @@
                             <p class="text-red-500 font-black text-2xl">550.000đ</p>
                             <p class="text-slate-300 line-through text-xs font-bold">620.000đ</p>
                         </div>
-                        <div class="bg-primary text-white p-4 rounded-2xl group-hover:bg-secondary transition-colors">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+                        <div onclick="event.stopPropagation(); addToCart('Sukoyaka M1 (800g)', '550.000đ', '7bf617ad-ac24-4d67-8ed3-547466ce2112.jfif')" class="bg-primary text-white p-4 rounded-2xl group-hover:bg-secondary transition-colors z-10">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" /></svg>
                         </div>
                     </div>
                 </div>
@@ -198,8 +199,8 @@
                     <p class="text-slate-400 text-sm mb-6 leading-relaxed">Tiết kiệm hơn cho mẹ, quà tặng hỏa tốc từ Nobinobi.</p>
                     <div class="flex items-center justify-between">
                         <p class="text-primary font-black text-3xl">1.090.000đ</p>
-                        <div class="bg-primary text-white p-4 rounded-2xl group-hover:bg-secondary transition-colors">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+                        <div onclick="event.stopPropagation(); addToCart('Combo 2 Lon M1', '1.090.000đ', '27ae0e3db0340cbd915e9c5aeb8c8f4f.webp')" class="bg-primary text-white p-4 rounded-2xl group-hover:bg-secondary transition-colors z-10">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" /></svg>
                         </div>
                     </div>
                 </div>
@@ -212,8 +213,8 @@
                     <p class="text-slate-400 text-sm mb-6 leading-relaxed">Tiện lợi mang đi du lịch hoặc cho bé mang đi sinh.</p>
                     <div class="flex items-center justify-between">
                         <p class="text-red-500 font-black text-2xl">490.000đ</p>
-                        <div class="bg-primary text-white p-4 rounded-2xl group-hover:bg-secondary transition-colors">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+                        <div onclick="event.stopPropagation(); addToCart('Sukoyaka Dạng Thanh', '490.000đ', '75ee42ed78613764e0b4ad76addd9812.webp')" class="bg-primary text-white p-4 rounded-2xl group-hover:bg-secondary transition-colors z-10">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" /></svg>
                         </div>
                     </div>
                 </div>
@@ -330,7 +331,6 @@
             mirror: false,
         });
 
-        // Header and Sticky CTA effects on scroll
         const header = document.getElementById('main-header');
         const stickyCta = document.getElementById('sticky-cta');
 
@@ -347,7 +347,6 @@
                 header.style.width = '95%';
             }
 
-            // Show sticky CTA after scrolling down
             if (window.scrollY > 800) {
                 stickyCta.classList.remove('scale-0');
                 stickyCta.classList.add('scale-100');
@@ -355,6 +354,39 @@
                 stickyCta.classList.add('scale-0');
                 stickyCta.classList.remove('scale-100');
             }
+        });
+
+        // --- BỔ SUNG LOGIC GIỎ HÀNG ---
+        function getCart() {
+            const cart = localStorage.getItem('cart');
+            return cart ? JSON.parse(cart) : [];
+        }
+
+        function saveCart(cart) {
+            localStorage.setItem('cart', JSON.stringify(cart));
+        }
+
+        function updateCartCount() {
+            const cart = getCart();
+            const countElement = document.getElementById('cart-count-header');
+            if (countElement) countElement.innerText = cart.length;
+        }
+
+        function addToCart(name, price, image) {
+            const cart = getCart();
+            cart.push({
+                id: 'beanstalk-' + Date.now(),
+                name: name,
+                price: price,
+                image: image
+            });
+            saveCart(cart);
+            updateCartCount();
+            alert(`Sản phẩm ${name} đã được thêm vào giỏ hàng!`);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            updateCartCount();
         });
     </script>
 </body>
