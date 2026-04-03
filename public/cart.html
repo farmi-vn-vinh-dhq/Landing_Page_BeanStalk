@@ -42,8 +42,7 @@
         <h1 class="text-3xl font-black text-slate-900 mb-8 uppercase tracking-widest text-center">Giỏ Hàng Của Bạn</h1>
         
         <div id="cart-items" class="bg-white rounded-[2rem] shadow-sm border border-slate-100 p-6 md:p-8 space-y-6">
-            <p id="empty-cart-message" class="text-center text-slate-500 font-medium">Giỏ hàng đang trống. Hãy quay lại trang chủ để chọn sản phẩm nhé!</p>
-        </div>
+            </div>
 
         <div id="cart-summary" class="mt-8 bg-white rounded-[2rem] shadow-xl border border-primary/20 p-8 hidden">
             <h2 class="text-xl font-bold text-slate-900 mb-4 uppercase">Tổng đơn hàng</h2>
@@ -51,7 +50,9 @@
                 <span class="text-slate-500 font-medium">Tạm tính:</span>
                 <span id="cart-total" class="text-3xl font-black text-secondary">0đ</span>
             </div>
-            <button class="w-full bg-primary text-white font-black py-5 rounded-2xl hover:bg-secondary transition shadow-xl active:scale-95 text-lg">TIẾN HÀNH ĐẶT HÀNG</button>
+            <button onclick="window.location.href='https://nobinobi.vn/cart'" class="w-full bg-primary text-white font-black py-5 rounded-2xl hover:bg-secondary transition shadow-xl active:scale-95 text-lg">
+                TIẾN HÀNH ĐẶT HÀNG
+            </button>
         </div>
     </main>
 
@@ -79,46 +80,46 @@
         function loadCart() {
             const cart = getCart();
             const cartItemsContainer = document.getElementById('cart-items');
-            const emptyCartMessage = document.getElementById('empty-cart-message');
             const cartSummary = document.getElementById('cart-summary');
             const cartTotalElement = document.getElementById('cart-total');
             const cartCountHeader = document.getElementById('cart-count-header');
             
-            cartItemsContainer.innerHTML = ''; 
             let total = 0;
+            let htmlContent = '';
 
             if (cart.length === 0) {
-                cartItemsContainer.appendChild(emptyCartMessage);
-                emptyCartMessage.style.display = 'block';
+                // Giữ HTML an toàn thay vì thao tác chèn/xóa node phức tạp
+                htmlContent = '<p id="empty-cart-message" class="text-center text-slate-500 font-medium">Giỏ hàng đang trống. Hãy quay lại trang chủ để chọn sản phẩm nhé!</p>';
                 cartSummary.style.display = 'none';
             } else {
-                emptyCartMessage.style.display = 'none';
                 cartSummary.style.display = 'block';
                 
                 cart.forEach(item => {
-                    const itemElement = document.createElement('div');
-                    itemElement.classList.add('flex', 'items-center', 'justify-between', 'border-b', 'border-slate-50', 'pb-6', 'last:border-0', 'last:pb-0');
-                    itemElement.innerHTML = `
-                        <div class="flex items-center space-x-4">
-                            <div class="bg-accent rounded-2xl p-2 h-20 w-20 flex items-center justify-center">
-                                <img src="${item.image}" alt="${item.name}" class="max-h-full object-contain mix-blend-multiply">
+                    htmlContent += `
+                        <div class="flex items-center justify-between border-b border-slate-50 pb-6 last:border-0 last:pb-0">
+                            <div class="flex items-center space-x-4">
+                                <div class="bg-accent rounded-2xl p-2 h-20 w-20 flex items-center justify-center">
+                                    <img src="${item.image}" alt="${item.name}" class="max-h-full object-contain mix-blend-multiply">
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-bold text-slate-900 mb-1">${item.name}</h3>
+                                    <p class="text-primary font-black">${item.price}</p>
+                                </div>
                             </div>
-                            <div>
-                                <h3 class="text-lg font-bold text-slate-900 mb-1">${item.name}</h3>
-                                <p class="text-primary font-black">${item.price}</p>
-                            </div>
+                            <button onclick="removeFromCart('${item.id}')" class="bg-red-50 text-red-500 p-3 rounded-xl hover:bg-red-500 hover:text-white transition">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                </svg>
+                            </button>
                         </div>
-                        <button onclick="removeFromCart('${item.id}')" class="bg-red-50 text-red-500 p-3 rounded-xl hover:bg-red-500 hover:text-white transition">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                            </svg>
-                        </button>
                     `;
-                    cartItemsContainer.appendChild(itemElement);
+                    // Ép kiểu lại giá tiền mỗi khi render
                     total += parseInt(item.price.replace(/[^0-9]/g, ''));
                 });
-                cartTotalElement.innerText = `${total.toLocaleString('vi-VN')}đ`;
             }
+            
+            cartItemsContainer.innerHTML = htmlContent;
+            cartTotalElement.innerText = `${total.toLocaleString('vi-VN')}đ`;
             cartCountHeader.innerText = cart.length;
         }
 
@@ -126,7 +127,7 @@
             let cart = getCart();
             cart = cart.filter(item => item.id !== id);
             saveCart(cart);
-            loadCart();
+            loadCart(); // Gọi lại loadCart sẽ kích hoạt việc tính toán lại total từ đầu
         }
     </script>
 </body>

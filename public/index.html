@@ -20,7 +20,6 @@
     </script>
 
     <style>
-        /* Custom Animations */
         @keyframes float {
             0%, 100% { transform: translateY(0) rotate(0deg); }
             50% { transform: translateY(-20px) rotate(2deg); }
@@ -39,7 +38,6 @@
             border: 1px solid rgba(255, 255, 255, 0.3);
         }
 
-        /* Chữ chạy Marquee */
         .marquee {
             white-space: nowrap;
             overflow: hidden;
@@ -51,7 +49,6 @@
             100% { transform: translateX(-50%); }
         }
 
-        /* Hiệu ứng mờ nền khi cuộn */
         .header-scrolled {
             background: rgba(86, 193, 66, 0.9);
             padding: 0.5rem 1rem;
@@ -356,7 +353,7 @@
             }
         });
 
-        // --- BỔ SUNG LOGIC GIỎ HÀNG ---
+        // --- Cập nhật ID sinh ngẫu nhiên để chống bug xóa ---
         function getCart() {
             const cart = localStorage.getItem('cart');
             return cart ? JSON.parse(cart) : [];
@@ -375,7 +372,7 @@
         function addToCart(name, price, image) {
             const cart = getCart();
             cart.push({
-                id: 'beanstalk-' + Date.now(),
+                id: 'beanstalk-' + Date.now() + '-' + Math.floor(Math.random() * 1000), // Bổ sung chuỗi random
                 name: name,
                 price: price,
                 image: image

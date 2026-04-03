@@ -209,10 +209,11 @@
             if (countElement) countElement.innerText = cart.length;
         }
 
+        // --- Cập nhật ID sinh ngẫu nhiên để chống bug xóa ---
         function addToCart(name, price, image) {
             const cart = getCart();
             cart.push({
-                id: 'beanstalk-' + Date.now(),
+                id: 'beanstalk-' + Date.now() + '-' + Math.floor(Math.random() * 1000), // Bổ sung chuỗi random
                 name: name,
                 price: price,
                 image: image
