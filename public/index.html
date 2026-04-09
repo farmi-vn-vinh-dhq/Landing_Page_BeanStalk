@@ -389,13 +389,16 @@
             }, 3000);
         }
 
-        function addToCart(name, price, image) {
+                function addToCart(name, price, image) {
             const cart = getCart();
+            // Đảm bảo đường dẫn hình ảnh luôn bắt đầu bằng 'images/' nếu chưa có
+            const imagePath = image.startsWith('images/') ? image : 'images/' + image;
+            
             cart.push({
                 id: 'beanstalk-' + Date.now() + '-' + Math.floor(Math.random() * 1000), // Bổ sung chuỗi random
                 name: name,
                 price: price,
-                image: image
+                image: imagePath
             });
             saveCart(cart);
             updateCartCount();
