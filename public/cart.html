@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Giỏ Hàng | Sữa BeanStalk</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onTurnstileLoad" async defer></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
@@ -160,13 +159,9 @@
         }
 
         // ===== CLOUDFLARE TURNSTILE =====
-        // TODO: Thay bằng Site Key thật từ Cloudflare Dashboard
         const TURNSTILE_SITE_KEY = '0x4AAAAAAC8omSC6eNvLeFK2';
         let turnstileWidgetId = null;
-
-        function onTurnstileLoad() {
-            // Turnstile script đã sẵn sàng, widget sẽ render khi mở modal
-        }
+        let turnstileReady = false;
 
         function openVerifyModal() {
             const modal = document.getElementById('verify-modal');
@@ -174,9 +169,26 @@
             status.classList.add('hidden');
             modal.classList.add('active');
 
-            // Render widget mỗi lần mở modal
             const container = document.getElementById('turnstile-widget');
             container.innerHTML = '';
+
+            if (turnstileReady && typeof turnstile !== 'undefined') {
+                renderTurnstile();
+            } else {
+                container.innerHTML = '<p class="text-slate-400 text-sm">Đang tải xác thực...</p>';
+                // Chờ script load xong rồi render
+                const checkInterval = setInterval(() => {
+                    if (typeof turnstile !== 'undefined') {
+                        turnstileReady = true;
+                        clearInterval(checkInterval);
+                        container.innerHTML = '';
+                        renderTurnstile();
+                    }
+                }, 200);
+            }
+        }
+
+        function renderTurnstile() {
             turnstileWidgetId = turnstile.render('#turnstile-widget', {
                 sitekey: TURNSTILE_SITE_KEY,
                 theme: 'light',
@@ -190,7 +202,7 @@
         function closeVerifyModal() {
             const modal = document.getElementById('verify-modal');
             modal.classList.remove('active');
-            if (turnstileWidgetId !== null) {
+            if (turnstileWidgetId !== null && typeof turnstile !== 'undefined') {
                 turnstile.remove(turnstileWidgetId);
                 turnstileWidgetId = null;
             }
@@ -201,12 +213,10 @@
             status.innerHTML = '<span class="text-primary">&#10003; Xác thực thành công! Đang chuyển hướng...</span>';
             status.classList.remove('hidden');
 
-            // Lưu token để dùng cho bước tiếp theo (gửi API)
             sessionStorage.setItem('turnstile_token', token);
 
             setTimeout(() => {
                 closeVerifyModal();
-                // TODO: Thay bằng bước tiếp theo (form thông tin khách hàng / gọi API)
                 window.location.href = 'https://nobinobi.vn/cart';
             }, 1500);
         }
@@ -226,5 +236,8 @@
             }
         }
     </script>
+
+    <!-- Load Turnstile ở cuối body để không block render -->
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </body>
 </html>
