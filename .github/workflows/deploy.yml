@@ -17,6 +17,12 @@ jobs:
         with:
           node-version: '20'
 
+      - name: Cài đặt dependencies
+        run: npm ci
+
+      - name: Build Tailwind CSS
+        run: npx @tailwindcss/cli -i src/input.css -o public/styles.css --minify
+
       - name: Cài đặt Firebase CLI
         run: npm install -g firebase-tools
 
