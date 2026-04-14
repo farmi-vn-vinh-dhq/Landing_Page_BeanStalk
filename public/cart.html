@@ -13,8 +13,11 @@
 <body class="bg-slate-100 text-dark antialiased flex flex-col min-h-screen">
 
     <noscript>
-        <div style="background:#56c142;color:white;text-align:center;padding:16px;font-family:'Plus Jakarta Sans',sans-serif;font-weight:bold;">
-            Trang web hoat dong tot hon khi bat JavaScript. Vui long bat JavaScript trong trinh duyet de co trai nghiem tot nhat.
+        <style>
+            #cart-items, #cart-summary { display: none !important; }
+        </style>
+        <div style="background:#56c142;color:white;text-align:center;padding:12px;font-family:'Plus Jakarta Sans',sans-serif;font-weight:bold;font-size:14px;">
+            Vui long bat JavaScript de su dung gio hang truc tuyen. Hoac lien he truc tiep de dat hang.
         </div>
     </noscript>
 
@@ -37,6 +40,57 @@
     <main class="max-w-4xl mx-auto px-4 py-12 flex-grow w-full">
         <h1 class="text-3xl font-black text-slate-900 mb-8 uppercase tracking-widest text-center">Giỏ Hàng Của Bạn</h1>
         
+        <!-- Noscript: Hiển thị sản phẩm + liên hệ khi tắt JS -->
+        <noscript>
+            <div class="bg-white rounded-[2rem] shadow-sm border border-slate-100 p-6 md:p-8 mb-8">
+                <h2 class="text-xl font-bold text-slate-900 mb-6 uppercase">San pham cua Nobinobi</h2>
+                <div class="space-y-6">
+                    <div class="flex items-center space-x-4 border-b border-slate-50 pb-6">
+                        <div class="bg-accent rounded-2xl p-2 h-20 w-20 flex items-center justify-center">
+                            <img src="images/7bf617ad-ac24-4d67-8ed3-547466ce2112.jfif" alt="Sukoyaka M1 800g" class="max-h-full object-contain">
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-slate-900 mb-1">Sukoyaka M1 (800g)</h3>
+                            <p class="text-primary font-black">550.000d</p>
+                            <p class="text-slate-400 text-sm">Cong thuc danh rieng cho be 0-1 tuoi</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-4 border-b border-slate-50 pb-6">
+                        <div class="bg-accent rounded-2xl p-2 h-20 w-20 flex items-center justify-center">
+                            <img src="images/27ae0e3db0340cbd915e9c5aeb8c8f4f.webp" alt="Combo 2 Lon M1" class="max-h-full object-contain">
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-slate-900 mb-1">Combo 2 Lon M1</h3>
+                            <p class="text-primary font-black">1.090.000d</p>
+                            <p class="text-slate-400 text-sm">Tiet kiem hon, qua tang hoa toc</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <div class="bg-accent rounded-2xl p-2 h-20 w-20 flex items-center justify-center">
+                            <img src="images/75ee42ed78613764e0b4ad76addd9812.webp" alt="Sukoyaka Dang Thanh" class="max-h-full object-contain">
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-slate-900 mb-1">Sukoyaka Dang Thanh</h3>
+                            <p class="text-primary font-black">490.000d</p>
+                            <p class="text-slate-400 text-sm">Tien loi mang di du lich</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white rounded-[2rem] shadow-xl border border-primary/20 p-8 text-center">
+                <h2 class="text-xl font-bold text-slate-900 mb-4 uppercase">Dat hang truc tiep</h2>
+                <p class="text-slate-500 mb-6">Lien he Nobinobi de dat hang nhanh nhat:</p>
+                <div class="space-y-3">
+                    <a href="tel:1900xxxx" class="block bg-primary text-white font-black py-4 rounded-2xl text-lg">Goi: 1900.xxxx (8h - 22h)</a>
+                    <a href="https://nobinobi.vn" class="block bg-secondary text-white font-black py-4 rounded-2xl text-lg">Truy cap Nobinobi.vn</a>
+                </div>
+                <div class="mt-6 text-slate-400 text-sm">
+                    <p>48 Duong B4, An Loi Dong, Thu Duc, HCM</p>
+                    <p>96 Dao Tri, Phu Thuan, Quan 7, HCM</p>
+                </div>
+            </div>
+        </noscript>
+
         <div id="cart-items" class="bg-white rounded-[2rem] shadow-sm border border-slate-100 p-6 md:p-8 space-y-6">
             </div>
 
