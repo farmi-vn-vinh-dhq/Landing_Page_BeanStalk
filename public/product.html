@@ -23,7 +23,7 @@
     <header class="glass-header text-white p-4 sticky top-0 z-50 shadow-sm border-b border-white/10">
         <div class="max-w-7xl mx-auto flex items-center justify-between">
             <a href="index.html" class="text-2xl font-extrabold tracking-tighter flex items-center gap-2">
-                <span class="bg-white text-primary px-2 py-1 rounded-lg">Nobi</span>nobinobi
+                <span class="bg-white text-primary px-2 py-1 rounded-lg">nobi</span>nobinobi
             </a>
             <nav class="hidden md:flex space-x-6 text-sm font-bold uppercase tracking-widest">
                 <a href="index.html" class="hover:text-secondary transition">Trang chủ</a>
@@ -52,13 +52,13 @@
                 <div class="sticky top-32">
                     <div class="relative group bg-slate-100 rounded-[2.5rem] p-8 overflow-hidden border border-slate-100">
                         <div class="absolute top-6 left-6 bg-red-500 text-white font-black px-4 py-1 rounded-full z-10 shadow-lg">-15%</div>
-                        <img src="images/7bf617ad-ac24-4d67-8ed3-547466ce2112.jfif" alt="Sữa BeanStalk" class="w-full h-auto object-contain transform group-hover:scale-105 transition-transform duration-700">
+                        <img id="main-image" src="images/7bf617ad-ac24-4d67-8ed3-547466ce2112.jfif" alt="Sữa BeanStalk" class="w-full h-auto object-contain transform group-hover:scale-105 transition-transform duration-700">
                     </div>
-                                        <div class="grid grid-cols-4 gap-4 mt-6">
-                        <div class="border-2 border-primary rounded-2xl p-2 cursor-pointer bg-accent"><img src="images/7bf617ad-ac24-4d67-8ed3-547466ce2112.jfif" class="w-full"></div>
-                        <div class="border border-slate-100 rounded-2xl p-2 cursor-pointer hover:border-primary transition"><img src="images/27ae0e3db0340cbd915e9c5aeb8c8f4f.webp" class="w-full"></div>
-                        <div class="border border-slate-100 rounded-2xl p-2 cursor-pointer hover:border-primary transition"><img src="images/75ee42ed78613764e0b4ad76addd9812.webp" class="w-full"></div>
-                        <div class="border border-slate-100 rounded-2xl p-2 cursor-pointer hover:border-primary transition"><img src="images/8a315e2a-8043-4345-8eaf-8bd1ab671d62.jfif" class="w-full"></div>
+                    <div class="grid grid-cols-4 gap-4 mt-6" id="thumb-list">
+                        <div class="thumb-item border-2 border-primary rounded-2xl p-2 cursor-pointer bg-accent" onclick="switchImage(this, 'images/7bf617ad-ac24-4d67-8ed3-547466ce2112.jfif')"><img src="images/7bf617ad-ac24-4d67-8ed3-547466ce2112.jfif" class="w-full"></div>
+                        <div class="thumb-item border-2 border-slate-100 rounded-2xl p-2 cursor-pointer hover:border-primary transition" onclick="switchImage(this, 'images/27ae0e3db0340cbd915e9c5aeb8c8f4f.webp')"><img src="images/27ae0e3db0340cbd915e9c5aeb8c8f4f.webp" class="w-full"></div>
+                        <div class="thumb-item border-2 border-slate-100 rounded-2xl p-2 cursor-pointer hover:border-primary transition" onclick="switchImage(this, 'images/75ee42ed78613764e0b4ad76addd9812.webp')"><img src="images/75ee42ed78613764e0b4ad76addd9812.webp" class="w-full"></div>
+                        <div class="thumb-item border-2 border-slate-100 rounded-2xl p-2 cursor-pointer hover:border-primary transition" onclick="switchImage(this, 'images/8a315e2a-8043-4345-8eaf-8bd1ab671d62.jfif')"><img src="images/8a315e2a-8043-4345-8eaf-8bd1ab671d62.jfif" class="w-full"></div>
                     </div>
                 </div>
             </div>
@@ -213,6 +213,37 @@
             updateCartCount();
             alert(`Tuyệt vời! Sản phẩm ${name} đã được thêm vào giỏ hàng.`);
         }
+
+        function switchImage(thumbEl, src) {
+            document.getElementById('main-image').src = src;
+            document.querySelectorAll('.thumb-item').forEach(el => {
+                el.classList.remove('border-primary', 'bg-accent');
+                el.classList.add('border-slate-100');
+            });
+            thumbEl.classList.remove('border-slate-100');
+            thumbEl.classList.add('border-primary', 'bg-accent');
+        }
+
+        // Hỗ trợ vuốt trên mobile
+        (function() {
+            const mainImg = document.getElementById('main-image');
+            const thumbs = document.querySelectorAll('.thumb-item');
+            const sources = Array.from(thumbs).map(t => t.querySelector('img').src);
+            let current = 0;
+            let startX = 0;
+
+            mainImg.parentElement.addEventListener('touchstart', e => {
+                startX = e.touches[0].clientX;
+            }, { passive: true });
+
+            mainImg.parentElement.addEventListener('touchend', e => {
+                const diff = startX - e.changedTouches[0].clientX;
+                if (Math.abs(diff) < 50) return;
+                if (diff > 0) current = Math.min(current + 1, sources.length - 1);
+                else current = Math.max(current - 1, 0);
+                switchImage(thumbs[current], sources[current]);
+            }, { passive: true });
+        })();
 
         document.addEventListener('DOMContentLoaded', () => {
             updateCartCount();
