@@ -49,6 +49,37 @@
 <body class="bg-slate-100 text-dark antialiased overflow-x-hidden">
 
     <noscript>
+        <style>
+            /* Fix AOS ẩn nội dung khi tắt JS */
+            [data-aos] {
+                opacity: 1 !important;
+                transform: none !important;
+                visibility: visible !important;
+            }
+            /* Tắt animation lặp vô hạn (ping, bounce, float, pulse, marquee) cho noscript */
+            .animate-ping, .animate-bounce, .animate-float, .btn-pulse, .marquee {
+                animation: none !important;
+            }
+            /* Sticky CTA bị ẩn (scale-0) khi không có JS - hiển thị nó */
+            #sticky-cta {
+                display: none !important;
+            }
+            /* Header đang fixed có thể che nội dung - đổi về static cho noscript */
+            #main-header {
+                position: relative !important;
+                top: 0 !important;
+                left: 0 !important;
+                transform: none !important;
+                width: 100% !important;
+                border-radius: 0 !important;
+                margin-bottom: 1rem;
+            }
+            /* Hero section bớt padding-top vì header không còn fixed */
+            section.min-h-screen {
+                min-height: auto !important;
+                padding-top: 2rem !important;
+            }
+        </style>
         <div style="background:#56c142;color:white;text-align:center;padding:16px;font-family:'Plus Jakarta Sans',sans-serif;font-weight:bold;">
             Trang web hoat dong tot hon khi bat JavaScript. Vui long bat JavaScript trong trinh duyet de co trai nghiem tot nhat.
         </div>
