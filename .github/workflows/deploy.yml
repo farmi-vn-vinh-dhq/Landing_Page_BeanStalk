@@ -1,4 +1,4 @@
-name: Tự động Deploy lên Firebase
+name: Tự động Deploy Landing Page AI lên Firebase
 
 on:
   push:
@@ -23,10 +23,32 @@ jobs:
       - name: Build Tailwind CSS
         run: npx @tailwindcss/cli -i src/input.css -o public/styles.css --minify
 
-      - name: Cài đặt Firebase CLI
-        run: npm install -g firebase-tools
+      # Cấu hình file firebase.json để chỉ định SITE
+      - name: Cấu hình Site Firebase
+        run: |
+          cat <<EOF > firebase.json
+          {
+            "hosting": {
+              "site": "mkt-landingpage-ai",
+              "public": "public",
+              "ignore": [
+                "firebase.json",
+                "**/.*",
+                "**/node_modules/**"
+              ]
+            }
+          }
+          EOF
 
-      - name: Deploy lên Firebase
-        run: firebase deploy --only hosting --non-interactive
-        env:
-          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+      # Dùng lệnh CLI trực tiếp để log hiện link CHUẨN
+      - name: Deploy lên Firebase Hosting
+        run: |
+          # Tạo file JSON tạm từ Secret
+          echo '${{ secrets.FIREBASE_SA }}' > sa.json
+          export GOOGLE_APPLICATION_CREDENTIALS=$PWD/sa.json
+          
+          # Chạy lệnh deploy trực tiếp
+          npx firebase-tools deploy --only hosting:mkt-landingpage-ai --project farmi-go --non-interactive
+          
+          # Xóa file key sau khi xong
+          rm sa.json
