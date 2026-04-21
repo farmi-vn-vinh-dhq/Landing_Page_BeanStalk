@@ -23,7 +23,7 @@ jobs:
       - name: Build Tailwind CSS
         run: npx @tailwindcss/cli -i src/input.css -o public/styles.css --minify
 
-      # Bước này giúp đảm bảo 100% code vào đúng site AI và link báo cáo sẽ chuẩn
+      # Cấu hình file firebase.json để chỉ định SITE
       - name: Cấu hình Site Firebase
         run: |
           cat <<EOF > firebase.json
@@ -40,10 +40,15 @@ jobs:
           }
           EOF
 
+      # Dùng lệnh CLI trực tiếp để log hiện link CHUẨN
       - name: Deploy lên Firebase Hosting
-        uses: FirebaseExtended/action-hosting-deploy@v0
-        with:
-          repoToken: '${{ secrets.GITHUB_TOKEN }}'
-          firebaseServiceAccount: '${{ secrets.FIREBASE_SA }}'
-          projectId: farmi-go
-          channelId: live
+        run: |
+          # Tạo file JSON tạm từ Secret
+          echo '${{ secrets.FIREBASE_SA }}' > sa.json
+          export GOOGLE_APPLICATION_CREDENTIALS=$PWD/sa.json
+          
+          # Chạy lệnh deploy trực tiếp
+          npx firebase-tools deploy --only hosting:mkt-landingpage-ai --project farmi-go --non-interactive
+          
+          # Xóa file key sau khi xong
+          rm sa.json
